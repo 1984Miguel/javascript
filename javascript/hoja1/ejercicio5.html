@@ -1,0 +1,47 @@
+﻿<html>
+
+	<head>
+	
+		<script>
+		
+		alert("Voy a pedirte 5 cadenas de caracteres y al final te mostrare la mas larga");
+		
+		var larga="",aux="" ;
+		
+		
+		for (var x=1;x<=5;x++)
+			{
+			aux=prompt("dame la cadena nº: " + x);
+			
+			//podemos usar trimp para quitar los espacios en blanco
+			aux=aux.trim();
+			
+				if(aux.length >larga.length)
+				{
+				larga=aux;
+				}
+			console.log(larga);
+			console.log(aux);
+			
+			}
+	
+		alert("La cadena mas larga ha sido: \n" +
+				larga +
+				"\n Con un numero de carateres de: " +
+				larga.length);
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	<body>
+
+
+
+</html>
+

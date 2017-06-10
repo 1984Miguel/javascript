@@ -1,0 +1,176 @@
+﻿<html>
+
+	<head>
+	
+		<style>
+		
+		h3
+		{
+			color:red;
+			
+		}
+		
+		#not1, #not2, #not3
+		{
+			width:30px;
+			margin:5px;
+			
+		}
+		
+		h4
+		{
+			color:green;
+			
+		}
+		
+		fieldset
+		{
+			width:15%;
+			margin:auto;
+			
+			
+		}
+	
+		form input
+		{
+			display: inline-block;
+			width: 200px;
+			margin-bottom: 5px;
+		}
+		
+		</style>
+	
+
+		<script>
+				//validador de notas escribe error y posiciona
+		var error=false;
+		function rangoNota(n,m)
+		{
+				if (isNaN(n) || n.length==0 || n<0 ||n>10)
+			{
+				
+				document.getElementById(m).focus();
+				document.getElementById("ident").innerHTML="<h3> Debes introducir 3 notas</h3>";
+				
+				return encontrado=true;	
+			}
+			
+			
+			
+		}
+		
+		
+		
+		
+		function validar()
+		{
+			
+			// no pongo /Number(document.forms["notas"]["not1"].value;)
+			// en caso de no poner nada me lo reconoce como cero
+			// no realizo trim porque al pasar a numero ya me quita los espacios
+			
+			
+			//extraigo valores en variable
+			var x = document.forms["notas"]["not1"].value;
+			var y = document.forms["notas"]["not2"].value;
+			var z = document.forms["notas"]["not3"].value;
+		
+		
+		//realizo comprobaciones  si hay fallos la propia funcion los indica y devuelve error verdadero
+			error=rangoNota(x, "not1");
+			if(!error)
+			{
+			error=rangoNota(y, "not2");		
+			}
+			if(!error)
+			{
+			error=rangoNota(z, "not3");		
+			}				
+			
+	// si no hay error al introducir nota procedo a asignar nota string		
+	if(!error)
+	{		
+		var aux= (parseFloat(x)+parseFloat(y)+parseFloat(z))/3;
+		var  aux2=parseInt(aux);
+		console.log(aux);
+		var mostrar="";
+		
+		
+		
+		switch(aux2)
+		{
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+			mostrar="Suspenso";
+			break;
+		case 5:
+		case 6:
+			mostrar="Aprobado";
+			break;
+		case 7:
+		case 8:
+			mostrar="Notable";
+			break;	
+		case 9:
+		case 10:
+			mostrar="Sobresaliente";
+			break;	
+			
+		default:
+			mostrar="Nota no valida";
+		}	
+		
+			document.getElementById("ident").innerHTML="<h4> La nota obtenida es " + mostrar + " con una media entera de: " + aux +"</h4>";
+			
+		
+		}
+	
+		
+		
+	}
+	
+	function limpiar()
+		{
+			document.getElementById("not1").value="";
+			document.getElementById("not2").value="";
+			document.getElementById("not3").value="";
+		}
+		
+	
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body onload="limpiar()"> 
+	
+	
+	<fieldset>
+	<legend>Ejercicio 1</legend>
+	<form name="notas" action="ejercicio1.html" method="get">
+	
+		<input type="text" name="not1" id="not1"/>
+		<input type="text" name="not2" id="not2"/>
+		<input type="text" name="not3" id="not3"/>
+		<br />
+		<input type="button" value="Calcular media" onclick="validar();">
+	
+	
+	</form>
+	
+	<div id="ident"><h2>Resultado</h2></div>
+	
+	</fieldset>
+	
+	
+	<body>
+
+
+
+</html>
+

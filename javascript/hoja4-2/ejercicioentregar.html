@@ -1,0 +1,224 @@
+﻿<html>
+
+	<head>
+	
+	<style>
+	
+	table, td, th
+	{
+		font-size:1.10em;
+		border: 2px solid blue;
+		border-collapse: collapse;
+		
+	}
+	
+	td:nth-child(7)
+	{
+		background-Color:grey;
+		
+		
+	}
+	
+	
+	
+	
+	</style>
+	
+	
+		<script>
+		// para no escribir muchos option los creo con java script pasandole como parametro inicio y final
+	function carga()
+	{
+
+	document.getElementById('mes').innerHTML =formulario(0,11);
+	document.getElementById('anno').innerHTML =formulario(1980,2250);
+
+	
+	}	
+	
+	// crea los option
+	function formulario(n,i)
+	{
+var z="";
+	for (var x=n;x<=i;x++)
+		{
+		z+="<option value='"+x+"'>"+(Number(x)+Number(1))+"</option>";
+		}
+
+	return z;
+	}
+		
+	
+	
+	
+	function ver()
+	{
+		// extraigo numero de los formularios 
+		var mesaux= Number(document.forms['calendario']['mes'].value);
+		var annoaux= Number(document.forms['calendario']['anno'].value)+1;
+		
+		console.log(mesaux);
+				
+		console.log(annoaux);
+		
+		
+		// segun el mes asigno el numero maximo de dias para porder dibujarlos despues
+		
+		 var max=0;
+		
+		
+		switch (mesaux)
+		{
+			case 0 : case 2:  case 4: case 6: case 7: case 9: case 11 :
+				{
+					max=31;
+				}; break;
+				
+				case 1:
+				{
+					if  (annoaux%4==0)
+					{
+						max=29;
+						
+					}
+					else
+					{
+						max=28;
+						
+					}	
+					
+					
+					
+				};break;
+				
+				case 3: case 5:  case 8: case 10:
+				{
+					max=30;
+				};break;
+			
+			default:
+			alert("mes no valido");
+		}
+		
+		console.log(max);
+		
+		
+		
+		
+		// en otra funccion obtengo el codigo del html de la tabla que voy a mostrar paso como parametros dias maximos mes y año
+		document.getElementById("calendariover").innerHTML= calcular(max,mesaux,annoaux);
+	}
+	
+	
+
+
+	
+	function calcular(maxaux, mes, anno)
+		{
+		
+		//inicio fecha
+		var fecha = new Date(anno,mes,1);
+		//obtengo en que dia de la semana empieza en el for tendre en cuenta restar 1 y domingos ponerlos al final
+		var inicio = fecha.getDay()
+		console.log(fecha);
+		
+		
+			var cadena="";
+		cadena+="<table>";	
+		cadena+= "<caption>"+ fecha.toDateString()  + "</caption>";
+		
+		cadena+="<th>L</th><th>M</th><th>X</th><th>J</th><th>V</th><th>S</th><th>D</th>"
+		var mes =new Array();
+		var contador=Number(1);
+
+			for (var x=1;contador<=maxaux;x++)
+			{
+				cadena+="<tr>";
+				mes[x]=new Array();
+					for(var y=0;y<7 && contador <=maxaux;y++)
+					{
+						if  (contador==1)
+						{
+								if  (inicio==0)
+								{
+									y=6				
+									// uso una funcion para poner los td que no tienen dia al principio del mes
+						cadena+= rellenar(y);						
+								}
+						else
+						{			
+							y=inicio-1;
+							// uso una funcion para poner los td que no tienen dia al principio del mes
+						cadena+= rellenar(y);
+						}	
+							
+						}
+						
+						
+						mes[x][y]=contador;
+						cadena+="<td>"+mes[x][y]+"</td>";
+						contador++;
+						
+						
+					}
+				
+				
+				
+				
+				cadena+="</tr>";
+				
+				
+				
+			}
+		
+		
+		
+		
+		
+		cadena+="</table>";		
+		return cadena;
+		}
+		
+		function rellenar(n)
+
+		{
+			var cel=""
+			for (x=0;x<n;x++)
+			{
+				cel+="<td></td>";
+			}
+			return cel;
+			
+		}
+		
+	
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body onload="carga()">
+	
+	<form name="calendario" id="formulario"  >
+	
+		<label>SELECCIONA EL MES </label> <select name="mes" id="mes" onchange="ver()">	</select>
+		<label>SELECCIONA EL AÑO </label> <select name="anno" id="anno" onchange="ver()">	</select>
+		
+	</form>	
+		
+		
+		<div id="calendariover">
+		
+		</div>
+
+	
+	<body>
+
+
+
+</html>
+

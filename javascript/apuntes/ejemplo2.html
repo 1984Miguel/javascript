@@ -1,0 +1,53 @@
+﻿<html>
+
+	<head>
+	
+	<script>
+	
+	
+	function numeros()
+	{
+	var valor = document.forms['ejemplo2']['numero'].value;
+	console.log(valor);
+	
+	
+	var exp = /^[0-9]*$/;
+	
+	
+	    if (!exp.test(valor))
+	{
+	
+		var aux= valor.substring(0 , valor.length-1)
+		console.log("este es el aux de mi programa" + aux);
+		
+		document.forms['ejemplo2']['numero'].value= aux;
+	
+	
+	}
+	}
+	
+	
+	</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	
+	<form action="./ejemplo2.html" method="get" name="ejemplo2">
+	<label>  Solo numeros </label>
+	<input type="text" name="numero" value="" onkeypress="numeros()" />
+	<input type="button" value="Enviar" onclick="numeros()" />
+	<div id="div0"> </div>
+	
+	</form>
+	
+	
+	
+	</body>
+
+
+
+</html>

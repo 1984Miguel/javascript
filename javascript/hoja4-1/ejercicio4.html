@@ -1,0 +1,46 @@
+﻿<html>
+
+	<head>
+	
+		<script>
+		
+		function cadenas()
+		{
+		
+			var ped= window.prompt("Dame una cadena de texto escribe fin para acabar");
+			var cont=0;
+			var arr= new Array();
+			while(ped!="FIN")
+				{
+					arr[cont]=ped;
+					cont++;
+					ped= window.prompt("Dame una cadena de texto escribe FIN para acabar");
+		
+				}
+				
+				 arr.sort();		
+			for (var x=arr.length;x>0;x--)
+				{
+				document.write("<br />" + arr[x]);
+				}
+				
+		
+		}
+	
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body onload="cadenas();">
+	
+	<body>
+
+
+
+</html>
+

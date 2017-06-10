@@ -1,0 +1,66 @@
+﻿<html>
+
+	<head>
+	
+		<script>
+		
+		var num = window.prompt("Dame un numero entero");
+		
+		//podemos usar trimp para quitar los espacios en blanco
+		num=num.trimp();
+		
+		console.log(num);
+			if (parseInt(num)==num)
+			// if (num.length==0 || isNaN(parseInt(num)) )
+		{
+			console.log("Felicidades es un numero entero");
+			alert("Felicidades es un numero entero");
+			
+		}
+		
+		else if  (!isNaN(num))
+		{
+			
+			console.log("Es un numero decimal");
+			alert("Es un numero decimal");
+		}
+		
+		else
+		{
+			
+			console.log("Error no es un numero");
+			alert("Error no es un numero");
+			
+		}
+		
+		
+		
+		/*
+		if (isNaN(num))
+		{
+			console.log("Error no es un numero");
+			
+		}
+		else
+		{
+			console.log("Felicidades es un numero");
+			
+		}	
+		*/
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	<body>
+
+
+
+</html>
+

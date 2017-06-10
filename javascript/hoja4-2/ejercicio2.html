@@ -1,0 +1,84 @@
+<html>
+
+	<head>
+	
+		<script>
+		
+		
+	
+		var salas = new Array();
+		salas[0]= indexado();
+		salas[1]= indexado();
+		salas[2]= indexado();
+	
+	console.log(salas);
+	dibujar(salas);
+	
+	
+	
+	function dibujar(arr)
+	{
+	document.write("<table border='1'>");
+
+			document.write("<tr><th></th>");
+	for  (var item in arr[0]) 
+			{
+				document.write("<th>"+item+"</th>");
+			}
+			document.write("</tr>");
+	
+	
+	
+	
+	for (var x=0;x<arr.length;x++)
+	{
+		document.write("<tr><td> sala " + (Number(x)+Number(1))  + "</td>") ;
+
+		for  (var item in arr[x]) 
+			{
+				document.write("<td>"+arr[x][item]+"</td>");
+			}
+	document.write("</tr>");
+	}
+	
+	
+	
+	
+	document.write("</table>");
+	
+	
+	}
+	
+	
+	function indexado()
+	{
+		var dia = new Array();
+
+	 
+
+	dia["L"] = Math.floor(Math.random() * (50 - 20)) + 20;
+
+	dia["M"] = Math.floor(Math.random() * (50 - 20)) + 20;
+
+	dia["X"] = Math.floor(Math.random() * (50 - 20)) + 20;
+
+	dia["J"] = Math.floor(Math.random() * (50 - 20)) + 20;
+	
+	dia["V"] = Math.floor(Math.random() * (50 - 20)) + 20;
+	return dia;
+	}
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	<body>
+
+
+
+</html>
+

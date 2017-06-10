@@ -1,0 +1,118 @@
+﻿<html>
+		<!--ybarrio@salesianasnsp.es-->
+	<head>
+	
+		<style>
+		
+		#gen
+		{
+		background-color: cyan;
+		width:50%;
+		margin:auto;
+		text-align:center;
+		}
+		
+		
+		</style>
+	
+	
+		<script>
+		
+		function factura()
+		{
+			
+			
+			var suma=0;
+			var des=document.getElementById["destino"].value
+			console.log("des")
+			
+			
+		}
+		
+		
+	
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	
+	
+	<div id="gen">
+	
+	<h1> CRUCEROS QUE TE HUNDES!</h1>
+	
+	<img src="./img/barco.gif">
+	
+	<form name="cru" action="./ejercicio3.html" method="poster">
+		<label> Seleccione un destino</label>
+		<select name="destino" id="destino">
+		
+			<option value="870">Esencias del Mediterraneo </option>
+			<option value="930"> Islas Griegas </option>
+			<option value="1250"> Capitales Bálticas</option>
+			<option value="1550"> Fiordos Noruegos</option>
+		
+		</select>
+				<br /><br/> 
+
+		<select id="temporada">
+			
+			<option value="0">Baja </option>
+			<option value="150">Media </option>
+			<option value="300">Alta </option>
+		
+		</select>
+		<br />
+		<h3> EXTRAS </h3>
+		
+		<label>
+		<input type="checkbox" name="extras" value="150" />
+		Camarote Individual
+		</label>
+		
+		
+		<label>
+		<input type="checkbox" name="extras" value="200" />
+		Camarote Superlujo
+		</label>
+		
+		<label>
+		<input type="checkbox" name="extras" value="90" />
+			Bebida Todo Incluido
+		</label>
+		<br /> <br>
+		<label>PRECIO TOTAL</label>
+		<input type="text" name="total" readonly="readonly">
+		
+		<br /> <br />
+		
+		<input type="button" name="calcular" onclick="factura();" value="CALCULAR" />
+		
+		<br /> <br />
+		
+		<input type="button" name="reserva" onclick="" value="RESERVAR" />
+		
+		
+	
+	
+	
+	</form>
+	
+	
+	
+	<div> <!-- fin id gen>
+	
+	
+	<body>
+
+
+
+</html>
+

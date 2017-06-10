@@ -1,0 +1,51 @@
+<html>
+
+	<head>
+	
+		<script>
+		
+
+		var a,b;
+		
+	function ejecutar()
+	{
+	
+	b=0;
+	a = window.open("","Mi_ventana","top=0, left=0,width=100, height=100");
+	
+	a.document.write("Yo si que me aburro");
+	
+	b =a.setInterval(function() {a.moveBy(20,20)},1000)
+	
+	
+	
+	}
+
+	function parar()
+	{
+	
+	a.clearInterval(b);
+	
+	console.log(a)
+	console.log(b)
+	}
+	
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	<input type="button" value="Me aburro" onclick="ejecutar()" />
+	<input type="button" value="Parar" onclick="parar();" />
+	<body>
+
+
+
+</html>
+

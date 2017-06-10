@@ -1,0 +1,93 @@
+<html >
+<head>
+<title></title>
+
+<style type="text/css">
+#bien 
+{
+color:green;
+}
+#mal 	
+{
+color:red;
+}
+
+div
+{
+	
+	background-color:blue;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+
+var tabla = new Array ('a','aba','aabb','aabbb','aaabbb','aa','baa','abab','ababa','bababa','ab','bbb','baaa','abbba','bbaabb','ba', 'aaaa','baba','bbaab','bbabaa','aaa','aaba','bbbb','bbbaa','bbbabb');
+
+
+
+function botones()
+{
+
+
+
+document.write(		
+							'Contienen solo a o b'+
+							'<input type="button" onclick="verExp(/^a+$|^b+$/);" value="/^a+$|^b+$/">'+
+							'</br>'+
+							'solo parejas a y b'+
+							'<input type="button" onclick="verExp(/^a+b+|^b+a+/);" value="/^a+b+|^b+a+/">' +
+							'</br>'+
+							'contienen cadena aba o bab'+
+							'<input type="button" onclick="verExp(/aba+|bab+/);" value="/aba+|bab+/">' + 
+							'</br>'+
+							'Contienen la cadena ba al menos dos veces seguidas '+
+							'<input type="button" onclick="verExp(/baba/);" value="/baba/">' +
+							'</br>'+
+							'no tiene mas de 3 a o b seguidas'+
+							'<input type="button" onclick="verExp(/^a{1,2}b{1,2}$|^b{1,2}a{1,2}$/);" value="/^a{1,2}b{1,2}$|^b{1,2}a{1,2}$/">' +
+							'<br>'+
+							'alternan a y b sin repetirse'+
+							'<input type="button" onclick="verExp(/^ab(?!b)$|^ba(?!a)$/);" value="/^ab(?!b)$|^ba(?!a)$/>"'+
+							'<br>'+
+							'<div id="div0"></div>'); 
+							
+}
+
+function verExp(re)
+{
+/*var re=/^a/;*/
+
+var str="";
+
+var cont=0;
+for (var i=0;i<tabla.length;i++)
+	{
+	
+	
+	if (re.test(tabla[i]))
+		{
+		cont++;
+		str+= ('<p id="bien">'+tabla[i]+' '+re.test(tabla[i])+'</p>');
+		}
+		else
+		{
+		str+= ('<p id="mal">'+tabla[i]+' '+re.test(tabla[i])+'</p>');
+		}
+	}
+str+= ('TOTAL '+cont);
+
+document.getElementById('div0').innerHTML=str;
+
+}
+
+ </script>
+</head>
+<body onload="botones()">
+
+
+</body>
+</html>  
+

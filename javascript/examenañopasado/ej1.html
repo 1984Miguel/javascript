@@ -1,0 +1,108 @@
+<html>
+<head>
+<style type="text/css">
+ body{
+    font-family:Book Antiqua;
+	background-image:url("compound aquaish.jpg");
+    color:#660000;
+ }
+div{
+	width:400px;
+	height:300px;
+	margin-left:auto;
+	margin-right:auto;
+	}
+legend{
+	font-weight:bold;
+}
+h1,h3 {
+   text-align:center;
+ }
+ .fecha { 
+	font-weight:bold;
+	font-style: italic;
+ }
+ .displayed {
+	display: block;
+	margin-left: auto;
+	margin-right: auto }
+  .grises {
+     background-color:#BDBDBD;
+	 border-color:black;
+	 }
+ </style>
+<script>
+
+function cambiaFecha()
+{
+	var nombreaux= document.forms['formulario']['nombre'].value;
+	var apellidoaux= document.forms['formulario']['apellidos'].value;
+	var nacimientoaux= document.forms['formulario']['nacimiento'].value
+	var auxnum=document.forms['formulario']['numero'].value;
+	var desdeaux= document.forms['formulario']['desde'].value;
+	var renovaraux= document.forms['formulario']['tipo'].value;
+	var matriculaaux= document.forms['formulario']['matricula'].value;
+	var annoaux= document.forms['formulario']['anno'].value;
+	console.log(nacimientoaux);
+	
+	var fecha= /^([0-2]?\d|3[01])-(0?\d|1[0-2])\/\/(19\d{2}|20([0-4]\d|50))$/ ;
+	
+	if (!fecha.test(nacimientoaux))
+	{
+		alert("formato incorrecto dd-mm//aaaa");
+		document.forms['formulario']['nacimiento'].focus();
+		break;
+	}
+	
+	var num =/^\d{8}[A-Z]$/;
+	if(!num.test(auxnum))
+	{
+		alert ("erros debes escribir 8 numeros y una lettra mayuscula")
+		document.forms['formulario']['nacimiento'].focus();
+		
+	}
+	
+	
+}
+
+
+</script>
+</head>
+<body>
+<h1>CLUB DEL AUTOMOVIL</h1>
+<h3>ALTA NUEVO SOCIO</h3>
+<form name="formulario" id='formulario'>
+<div>
+    <fieldset>
+	<legend align="left"><font color="#CC0033">DATOS SOCIO</font></legend>
+	NOMBRE&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+	<input type="text" size='23' name="nombre" value="" />
+	<br><br>APELLIDOS&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<input type="text" size=23 name="apellidos"><br><br>
+	FECHA NACIMIENTO&nbsp&nbsp&nbsp&nbsp 
+	<input type="text" class="fecha" size=13 value="dd-mm//aaaa" name="nacimiento">
+	  </fieldset>
+	 <br>
+	<fieldset>
+    <legend align="left"><font color="#CC0033">DATOS CARNET CONDUCIR</font></legend>
+    Nº CARNET&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  
+	<input type="text" size="15" name="numero">
+	<br><br>DESDE&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+	<input type="text" class="fecha" size=13 value="dd-mm//aaaa" name="desde">   
+	<br><br>RENOVAR &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<input type="text" class="fecha" size=13 name="renovar">  
+	<br><br>TIPO &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<input type="text" size=5  name="tipo">  
+    </fieldset>
+	<br>
+	<fieldset>
+    <legend align="left"><font color="#CC0033">DATOS VEHÍCULO</font></legend>
+    MATRICULA  <input type="text" size="15" name="matricula">
+	AÑO <input type="text" size=6 name="anno">  
+    </fieldset> 
+    <br>
+	<input class="displayed" type="button" value="VALIDAR" onclick="cambiaFecha()">
+ </div>
+</form> 
+</body>
+</html>

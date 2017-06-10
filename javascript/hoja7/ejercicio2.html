@@ -1,0 +1,321 @@
+﻿<html>
+
+	<head>
+	
+		<style>
+		
+		.error
+		{
+		color:red;
+		}
+		
+		.bien
+		{
+		color:green;
+		}
+		
+		</style>
+	
+		<script>
+		
+		function binario(valor)
+		{
+		
+		
+		var expbin= /^1+[01]*$|^0(?!1)$/;
+		if (expbin.test(valor))
+		{
+		console.log("es un binario");
+		document.getElementById('div0').innerHTML="<p class='bien'>Es un numero binario </p>";
+		
+		}
+		else
+		{
+		console.log("No es un binario");
+		document.getElementById('div0').innerHTML="<p class='error'> No es un numero binario </p>";
+		}
+		
+		
+		}
+		
+		function movil(valor2)
+		{
+		
+		var expmov= /^6{1}\d{8}$/;
+		
+		if (expmov.test(valor2))
+		{
+			document.getElementById('div1').innerHTML="<p class='bien'>Es un telefono movil </p>";
+		}
+		else
+		{
+		document.getElementById('div1').innerHTML="<p class='error'> No es un telefono movil</p>";
+		
+		}
+		
+		}
+		
+		function expecial(valor3)
+		{
+		            /* hora                 */  /*minutos y segundos*/
+		expn3= /^90(1|2|3)\d{6}$/;
+		
+		if(expn3.test(valor3))
+		{
+			document.getElementById('div2').innerHTML="<p class='bien'>Es un telefono valido </p>";
+		}
+		else
+		{
+				document.getElementById('div2').innerHTML="<p class='error'> No es un telefono no valido</p>";
+		}
+		}
+		
+		function curso(valor3)
+		{
+		
+		expn3= /^(daw|asir|fin){1}(1|2){1}$/i;
+		
+		if(expn3.test(valor3))
+		{
+			document.getElementById('div3').innerHTML="<p class='bien'>Es un crso valido </p>";
+		}
+		else
+		{
+				document.getElementById('div3').innerHTML="<p class='error'> No es un curso valido</p>";
+		}
+		}
+		
+		
+		
+		
+			function decimal(valor4)
+		{
+		
+		expn4= /^\d+(,|\.)\d{2}(€|\$){1}$/
+		
+		if(expn4.test(valor4))
+		{
+			document.getElementById('div4').innerHTML="<p class='bien'>Es un decimal </p>";
+		}
+		else
+		{
+				document.getElementById('div4').innerHTML="<p class='error'> No es un decimal</p>";
+		}
+}
+		
+		function web(valor5)
+		{
+		
+			expn5= /^(www\.){1}(porno|poker|juego){1}(\.es|\.com|\.org)$/;
+		
+			if(expn5.test(valor5))
+			{
+				document.getElementById('div5').innerHTML="<p class='bien'>Es una web valida </p>";
+			}
+			else
+			{
+				document.getElementById('div5').innerHTML="<p class='error'> No es una web valida</p>";
+			}
+			}
+		
+				function hora(valor6)
+		{
+		
+			expn6= /^(([01]?\d{1})|2?[0-3]{1}):[0-5]\d:[0-5]\d$/;
+		
+			if(expn6.test(valor6))
+			{
+				document.getElementById('div6').innerHTML="<p class='bien'>Es una hora valida </p>";
+			}
+			else
+			{
+				document.getElementById('div6').innerHTML="<p class='error'> No es una hora valida</p>";
+			}
+			}
+			
+						function fecha(valor7)
+		{
+		
+			expn7= /^([0-2]?\d|3[01])\/(0?\d|1[0-2])\/(19\d{2}|20([0-4]\d|50))$/ ;
+		
+			if(expn7.test(valor7))
+			{
+				document.getElementById('div7').innerHTML="<p class='bien'>Es una hecha </p>";
+			}
+			else
+			{
+				document.getElementById('div7').innerHTML="<p class='error'> no es una fecha valida</p>";
+			}
+			}
+		
+		function con1(valor8)
+		{
+		
+			expn8= /^\d{6}$/ ;
+		
+			if(expn8.test(valor8))
+			{
+				document.getElementById('div8').innerHTML="<p class='bien'>Es una contraseña valida </p>";
+			}
+			else
+			{
+				document.getElementById('div8').innerHTML="<p class='error'> no es una contraseña valida</p>";
+			}
+			}
+		
+				function con2(valor9)
+		{
+		
+			expn9= /^[0-9a-z]{6}$/ ;
+		
+			if(expn9.test(valor9))
+			{
+				document.getElementById('div9').innerHTML="<p class='bien'>Es una contraseña valida </p>";
+			}
+			else
+			{
+				document.getElementById('div9').innerHTML="<p class='error'> no es una contraseña valida</p>";
+			}
+			}
+		
+		
+		function con3(valor10)
+		{
+			// demasiado rebuscada 
+			expn10= /^[a-z\d]{6}$/ ;
+			expn10a= /\d{1,5}/ ;
+			expn10b= /[a-z]{1,5}/ ;
+			
+		
+			if(expn10.test(valor10) && expn10a.test(valor10) && expn10b.test(valor10) )
+			{
+				document.getElementById('div10').innerHTML="<p class='bien'>Es una contraseña valida </p>";
+			}
+			else
+			{
+				document.getElementById('div10').innerHTML="<p class='error'> no es una contraseña valida</p>";
+			}
+			}
+		
+			function mat(valor11)
+		{
+		
+			expn11= /^\d+[\d\+\-\*\/]+\d$/ ;
+		
+			if(expn11.test(valor11))
+			{
+				document.getElementById('div11').innerHTML="<p class='bien'>Es ina expreisión matematica </p>";
+			}
+			else
+			{
+				document.getElementById('div11').innerHTML="<p class='error'> No es una expresion matematica</p>";
+			}
+			}
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	<fieldset>
+	<legend> Ejercicio A</legend> 
+	<h3> campo para comprobar si introduces un binario </h3>
+		<input type="text" name="binario" onchange="binario(this.value);" />
+		<div id="div0"></div>
+	
+	</fieldset>
+	
+		<fieldset>
+	<legend> Ejercicio B </legend> 
+	<h3> campo para comprobar si introduces un telefono movil</h3>
+		<input type="text" name="binario" onchange="movil(this.value);" />
+		<div id="div1"></div>
+		</fieldset>
+		
+			<fieldset>
+	<legend> Ejercicio C </legend> 
+	<h3> campo para comprobar si introduces un telefono es un 901 902 903</h3>
+		<input type="text" name="binario" onchange="expecial(this.value);" />
+		<div id="div2"></div>
+	
+	</fieldset>
+	
+	<fieldset>
+<legend>Ejercicio D<legend>	
+<h3>Comprobar que se introduce da1 daw2 asir1 asi2 fin1 fin2</h3>	
+		<input type="text" name="curso" onchange="curso(this.value);" />
+		<div id="div3"></div>
+	
+	</fieldset>
+	
+	
+	<fieldset>
+	<legend> Ejercicio E  </legend> 
+	<h3> cantidad de dinero 2 decimalesnumero con 2 decimales</h3>
+		<input type="text" name="decimal" onchange="decimal(this.value);" />
+		<div id="div4"></div>
+	
+	</fieldset>
+	
+	<fieldset>
+	<legend>Ejercicio F  </legend> 
+	<h3> web empieza por www. , contiene juego porno o poker y acaba .com .es .org</h3>
+		<input type="text" name="web" onchange="web(this.value);" />
+		<div id="div5"></div>
+</fieldset>
+	
+	<fieldset>
+		
+		
+	<legend>Ejercicio G</legend> 
+	<h3> hora formato HH:MM:SS  tambien admite H:MM:SS</h3>
+	<input type="text" name="hora" onchange="hora(this.value);" />
+	<div id="div6"></div>	
+	</fieldset>	
+	
+	<fieldset>	
+	<legend>Ejercicio H</legend> 
+	<h3> fecha formato DD/MM/AAAA admite D/M/AAAA</h3>
+	<h3> Rango de años 1900 - 2050 cuenta dodos los meses como 31 dias</h3>
+	<input type="text" name="fecha" onchange="fecha(this.value);" />
+	<div id="div7"></div>	
+	</fieldset>	
+		
+	<fieldset>	
+	<legend>Ejercicio I</legend> 
+	<h3> Contraseña 6 caracteres numericos</h3>
+	<input type="text" name="con1" onchange="con1(this.value);" />
+	<div id="div8"></div>	
+	</fieldset>
+	
+	<fieldset>	
+	<legend>Ejercicio j</legend> 
+	<h3> Contraseña 6 caracteres numericos o letras minusculas</h3>
+	<input type="text" name="con2" onchange="con2(this.value);" />
+	<div id="div9"></div>	
+	</fieldset>
+	
+		<fieldset>	
+	<legend>Ejercicio K</legend> 
+	<h3> Contraseña 6 caracteres al menos un numero una letra</h3>
+	<input type="text" name="con3" onchange="con3(this.value);" />
+	<div id="div10"></div>	
+	</fieldset>
+	
+		<fieldset>	
+	<legend>Ejercicio L</legend> 
+	<h3> Expresion matematica empieza acaba numero y puede contener +,-,*,/</h3>
+	<input type="text" name="mat" onchange="mat(this.value);" />
+	<div id="div11"></div>	
+	</fieldset>
+	
+	<body>
+
+
+
+</html>
+

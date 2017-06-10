@@ -1,0 +1,113 @@
+﻿<html>
+
+	<head>
+	
+		<style>
+		
+		fieldset
+		{
+		width:300px;
+		text-align:center;
+		border:2px,double,blue;
+		margin: auto;
+		}
+		
+		
+		form {
+    width: 400px;
+    font: normal bold 12px Verdana, Arial;
+}
+
+form label {
+    display: inline-block;
+    width: 150px;
+}
+
+form input {
+    display: inline-block;
+    width: 200px;
+    margin-bottom: 10px;
+}
+	</style>
+		<script>
+		
+		function valida()
+	{
+		
+		var x = document.forms["formu"]["nombre"].value;
+		var y = document.forms["formu"]["apellidos"].value;
+		var z = document.forms["formu"]["telefono"].value;
+		
+		
+		//comprobaciones en consola f12
+		console.log(x);
+		console.log(y);
+		console.log(z);		
+		
+		
+		if(x.length==0)
+		{
+		alert("Error debes introducir un nombre");
+		document.getElementById("nombre").focus();
+		error=true;
+		}
+		
+		else if(y.length==0)
+		{
+		alert("Error debes introducir un apellido");
+		document.getElementById("apellidos").focus();
+		
+		}
+		
+		else if(z.length!=9)
+		{
+		alert("Error debes introducir un numero de 9 digitos");
+		document.getElementById("telefono").focus();
+		error=true;
+		}
+		
+		
+		else
+		{
+		alert("felicidades formulario bien rellenado");
+		
+		}
+		
+		
+	}
+	
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	
+	<fieldset>
+	<legend>Ejercicio9</legend>
+		<form name="formu" "action="ejercicio9.html" method="get" onsubmit="return valida()">
+				<label>Nombre</label>
+				<input id="nombre"  type="text" name="nombre" value=""/>
+				<br />
+				<label>Apellidos</label>
+				<input type="text" name="apellidos" value="" id="apellidos"/>
+				<br />
+				<label>Telefono </label>
+				<input type="number" name="telefono" value="" id="telefono" />
+				<br />
+				<input type="button" name="Enviar" value="Enviar" onclick="valida()"/>
+		
+		
+		</form>
+	</fieldset>
+	<body>
+
+
+
+</html>
+

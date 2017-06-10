@@ -1,0 +1,40 @@
+<html>
+
+<head>
+
+
+<link href="jquery-ui.css" rel="stylesheet">
+	<script src="external/jquery/jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+	<script>
+	$(function() {
+		$( "#calendario" ).datepicker({
+			inline: true
+		});
+		$( "#datepicker" ).datepicker();
+	});
+	</script>
+	<style>
+	.demoHeaders {
+		margin-top: 2em;
+	}
+	</style>
+
+
+
+
+</head>
+
+
+<body>
+
+<p>Seleccione la fecha de llegada <input type="text" id="datepicker"></p>
+<div id="calendario"></div>
+
+
+
+</body>
+
+
+
+</html>

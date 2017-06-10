@@ -1,0 +1,87 @@
+﻿<html>
+
+	<head>
+	
+		<script>
+		
+
+		function pedir()
+		{
+			var n =window.prompt("Dame un numero entero");
+			
+		
+				if (!isNaN(n))
+					{
+						
+						
+						console.log("no es un nummero introducelo otra vez");
+						pedir();
+					}
+			else
+					{
+					console.log("Felicidades es un numero");	
+					return n;	
+					}	
+	
+		
+				
+				
+			
+			
+			
+			
+			
+			
+		}
+		
+		var x= pedir();
+		var y= pedir();
+		console.log("los numeros introducidos son: " + x + " y " + y +
+		"\n Ahora vamos a operar con ellos");
+	
+		var res;
+		var a =window.prompt("Dame un operador valido y te mostrare su resultado + - * /");
+		switch (a){
+		case "+" :
+				res= parseFloat(x) + parseFloat(y) ; 
+				alert ('El resultado de la suma es '+ res )
+		;break;
+		
+		case "-" :
+				res= x - y ; 
+				alert ('El resultado de la resta es '+ res );break;
+		
+		case "*" :
+				res= x * y ;
+				alert ('El resultado de la multiplicacion es '+ res );break;
+		case "/" :
+				res= x / y ;
+				var mod=  x % y ;
+				alert ('El resultado de la division es '+ res +"y su modulo "+ mod);break;
+				
+				
+				break;
+		
+		default:
+			alert ('No has introducido un operador valido');
+		}
+
+		
+	
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	<body>
+
+
+
+</html>
+

@@ -1,0 +1,72 @@
+<html>
+
+	<head>
+	
+		<script>
+		
+		function pedir()
+		{
+			document.write("<h1>8 puntuaciones obtenidad<h1>");
+			var arr = new Array();
+			var auxmax= 0 , auxmin=10, posmax=0, posmax=0;
+			
+			for (var x=0;x<8;x++)
+				{
+					//arr[x]= window.prompt("Dame la numero nยบ " + (x));
+					arr[x]=Math.floor((Math.random() * 10) + 1);
+					document.write(arr[x]+"*");
+					
+					if (arr[x]>auxmax)
+						{
+						posmax=x;
+						auxmax=arr[x];
+						}
+					if (arr[x]<auxmin)
+						{
+						posmin=x;
+						auxmin=arr[x];
+						}
+					
+				}
+				
+			document.write("<h1>Quitamos la mas alta y la mas baja<h1>");
+
+			
+			
+			
+// ordenar con sortt
+//aplicar pop shift 
+//	para poner losasteriscos se pone join				
+					
+				
+			
+				delete arr[posmax];
+				delete arr[posmin];
+				
+				var acu=Number(0);
+				for ( x=0;x<8;x++)
+				{
+					if(!isNaN(arr[x]))
+					{
+					document.write(arr[x]+"*");
+					acu+=Number(arr[x]);
+					}
+				}
+				document.write("<br />La suma total es: " + acu);
+		
+		}
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body onload="pedir();">
+	
+	<body>
+
+
+
+</html>
+

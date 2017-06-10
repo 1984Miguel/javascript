@@ -1,0 +1,77 @@
+﻿<html>
+
+	<head>
+	
+		<script>
+		// version teniendo en cuenta que el usuario solo introducira valores numericos
+		alert("en este programa te pedire 3 notas, te dire la media y si estas aprobado");
+		
+		var acu=0, encontrado=false;
+		for (var x=1;x<=3;x++)
+		{
+		var nota=prompt("Dame una nota n: "+ x );
+	
+		acu= parseInt(acu)+parseInt(nota);
+		
+			if(nota<=4)
+				{
+				encontrado=true;
+				}
+		console.log(acu);
+		console.log(encontrado);
+		
+		}
+		
+		var aux=acu/3;
+		aux=parseInt(aux);
+		console.log(aux);
+		
+		if (encontrado && aux>=4)
+			{
+			aux=4;
+			}
+		
+		
+		switch(aux)
+		{
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+			alert("Suspenso");
+			break;
+		case 5:
+		case 6:
+			alert("Aprobado");
+			break;
+		case 7:
+		case 8:
+			alert("Notable");
+			break;	
+		case 9:
+		case 10:
+			alert("Sobresaliente");
+			break;	
+			
+		default:
+			alert("Nota no valida");
+		}	
+	
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	<body>
+
+
+
+</html>
+

@@ -1,0 +1,60 @@
+﻿<html>
+
+	<head>
+	
+		<script>
+		
+		function fondo()
+		{
+		
+		var ele=document.forms["colores"]["seleccion"].value;
+		console.log(ele);
+		document.bgColor=ele;
+		
+		}
+	
+	function fondo2()
+		{
+		
+		var ele=document.forms["colores"]["seleccion2"].value;
+		console.log(ele);
+		document.bgColor=ele;
+		
+		}
+	
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	<form name="colores" method="post" action="ejercicio1.html">
+	
+	<select name="seleccion" onchange="fondo();">
+		<option value="white"> Blanco</option>
+		<option value="blue"> Azul</option>
+		<option value="geen"> Verde</option>
+		<option value="yellow"> Amarillo</option>
+	<select>
+	
+	
+	<input type="color" name="seleccion2" onchange="fondo2()" />
+	
+	
+	
+	
+	
+	</form>
+	
+	
+	<body>
+
+
+
+</html>
+

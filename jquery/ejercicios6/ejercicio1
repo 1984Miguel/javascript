@@ -1,0 +1,57 @@
+<html>
+
+
+<head>
+
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<script>
+
+
+
+
+var availableTags = [
+	"ActionScript",
+	"AppleScript",
+	"Asp",
+	"BASIC",
+	"C",
+	"C++",
+	"Clojure",
+	"COBOL",
+	"ColdFusion",
+	"Erlang",
+	"Fortran",
+	"Groovy",
+	"Haskell",
+	"Java",
+	"JavaScript",
+	"Lisp",
+	"Perl",
+	"PHP",
+	"Python",
+	"Ruby",
+	"Scala",
+	"Scheme"
+];
+$( "#completar" ).autocomplete({
+	source: availableTags
+});
+
+</script>
+
+
+</head>
+
+
+<body>
+
+
+Animal<input id="completar" title="type &quot;a&quot;">
+Flor<input id="completar" title="type &quot;a&quot;">
+
+<body>
+
+
+
+</html>

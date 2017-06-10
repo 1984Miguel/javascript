@@ -1,0 +1,53 @@
+<html>
+
+	<head>
+	
+		<script>
+		
+		
+		function ejecutar()
+		{
+	
+		
+					var x=10
+
+		 a =setInterval(function()
+		{
+		
+				if (x>0)
+				{
+				document.body.innerHTML=""; 
+				document.write("<h1> Faltan " +x-- + " segundos </h1>");
+				
+				}
+				else
+				{
+				document.body.innerHTML=""; 
+				document.write("<img src='garfield.jpg'/> ");
+				clearInterval(a);
+				}
+		} ,1000)
+		
+		}
+		
+	
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	<input type="button" value="Empezar" onclick="ejecutar();" />
+
+	
+	<body>
+
+
+
+</html>
+

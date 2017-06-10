@@ -1,0 +1,121 @@
+<html>
+<head>
+<style type="text/css">
+ body{
+font-family: Tahoma, Geneva, sans-serif;
+font-size: large;
+ }
+#div1{
+	background-image: url("fondo2.jpg");
+	width:720px;
+	height:600px;
+	margin-left:20px;
+	border: 2px black solid;
+	padding: 20px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	}
+.datos{ 
+	color:#08298A;
+ }
+}
+ </style>
+ <script>
+var precio=0;
+function comprobar(){
+mes=document.getElementById("idmes").value;
+reMes=/^(0[1-9]|1[0-2])\/\d{4}$/
+if (mes.length==0 || !reMes.test(mes)){
+	alert("Revise fecha");
+	document.getElementById("idmes").focus();
+	return;
+}
+mes2=mes.split('/')[0];
+anio=mes.split('/')[1];
+fecha=new Date(anio,mes2-1,1);
+hoy=new Date();
+if (anio<1990 ||fecha>hoy){
+	alert("Fecha menor que 1990 o mayor que la del sistema");
+	document.getElementById("idmes").focus();
+	return;
+}
+calcular();
+}
+function calcular (){
+seguro = new Array('BASICO', 'MAS DENTAL', 'TODO INCLUIDO');
+tipo=document.getElementsByName("tipo");
+base=0;
+for (i=0;i<tipo.length;i++)
+	{
+	if (tipo[i].checked){
+		base=tipo[i].value;  // i va indicar el tipo de seguro
+		break;
+		}
+	}
+if (base==0){
+	alert("Seleccione algún tipo");
+	return;
+}
+adultos=1;
+if (document.getElementById('idpar').checked)
+	adultos++;
+precio=base*adultos;
+hijos=document.getElementById('idhij').value;
+
+codigo='Tipo de Seguro: '+seguro[i]+'<br> Adultos: '+adultos+ "--> " + precio+'€';
+
+if (i<=1)  // BASICO o MAS DENTAL
+	precioHijos = 25 * hijos;
+else
+    precioHijos = 30 * hijos; 
+precio+=precioHijos;
+codigo+='<br> Niños: '+hijos+"--> " +precioHijos+'€';     
+codigo+='<br> Total: ---> '+precio+'€';
+
+trienios=parseInt((hoy-fecha)/(365*24*60*60*1000*3));
+codigo+='<br> Descuento por trienios: '+trienios+ ' trienios --->'+(5*trienios)+'%';
+precio=precio - (5*trienios)*precio/100;
+codigo+='<br> Total a pagar: '+precio+'€';
+alert(codigo); 
+}
+</script>
+</head>
+<body>
+<h1>SEGUROS MÉDICOS HOMMER // Springfield Nuclear Power Plant</h1>
+<form name="miformulario">
+<div id="div1">
+Si trabajas en nuestra empresa puedes contratar con nosotros tu seguro familiar
+<br><br>
+	Nombre: <input type="text" id="idnom" size=20> Apellidos: <input type="text" id="idape" size=30> 
+<br><br>
+	Dirección: <input type="text" value='Incluye tu código postal' id="iddir" size=40>
+<br><br>
+	Teléfono: <input type="text" value='Indica hasta 2 teléfonos separados por //' id="idtel" size=40> 
+<br><br>
+	 DNI: <input type="text" size=20 id="iddni"> Código Empleado: <input type="text" id="idcod" size=20>
+<br><br>
+	Correo empresa: <input type="text" size=25 id="idcor">
+<br><br>
+	Mes/Año entrada en la empresa: <input type="text" size=12 id="idmes" value='10/2000'>
+<br><br>
+Incluye a su pareja  <input type="checkbox" id="idpar"> Incluye a sus hijos 
+<select id="idhij">
+<option value="0" selected>Ninguno</option>
+<option value="1">Uno</option>
+<option value="2">Dos</option>
+<option value="3">Tres</option>
+<option value="3">Más de tres</option>
+</select>
+<br><br>
+Tipo de seguro <input type="radio" name="tipo"  value='30'> BÁSICO (30€) <input type="radio" name="tipo" value = '35'> 
+              MAS DENTAL (35€) <input type="radio" name="tipo" value='45'> TODO INCLUIDO (45€)
+<br><br>Número de cuenta (0000-0000-00-0000000000) <input type="text" size=30 id="idcue">   
+<br> <br>
+<input type="button" value="Comprobar datos y calcular póliza" onclick="comprobar()" >
+<br> <br>
+<input type="button" id="idpet" value="Petición de póliza" onclick="pedir()" style="display:none" >	
+	
+</div>
+</form> 
+</body>
+</html>

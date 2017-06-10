@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>Ejemplo de un mostrador de diapositivas</title> 
+<style type="text/css">
+	body{
+		font-family:"Trebuchet MS", Helvetica, sans-serif;
+	}
+	div{
+		width:600px;
+		margin-right:auto;
+		margin-left:auto;
+		padding:20px;
+		}
+</style>
+<script type="text/javascript">
+
+var nodo = document.getElementsByTagName("img");
+
+function aumentar()
+{
+
+var nodo = document.getElementsByTagName("img");
+
+console.log(nodo)
+
+for (var x=0;x<nodo.length;x++)
+{
+	var z= nodo[x].width;
+	nodo[x].width =z*2;
+	
+	
+	
+	var y= nodo[x].height;
+	nodo[x].height=y*2;
+	
+
+}
+
+}
+
+
+function disminuir()
+{
+
+
+console.log(nodo)
+
+for (var x=0;x<nodo.length;x++)
+{
+	var z= nodo[x].width;
+	nodo[x].width =z/2;
+	
+	
+	
+	var y= nodo[x].height;
+	nodo[x].height=y/2;
+
+}
+
+}
+
+function bordear()
+{
+	for (var x=0;x<nodo.length;x++)
+	{
+		if (nodo[x].style.border=="")
+		{
+			nodo[x].style.border="5px solid #0000FF"
+		}
+		else
+		{
+		nodo[x].style.border="";
+		}
+
+}
+
+}
+
+</script>
+</head>
+<body>
+<div id="imagenes">
+<img src='Tulips.jpg' height="20" width="10">
+<img src='Chrysanthemum.jpg' height="15" width="20"> 
+<img src='Desert.jpg' height="25" width="20">
+<img src='Hydrangeas.jpg' height="40" width="40"> 
+<br><br>
+<input type="button" value="Aumentar" onclick="aumentar()">
+<input type="button" value="Disminuir" onclick="disminuir()">
+<input type="button" value="Bordear" onclick="bordear()">
+</div>
+<div id="foto"></div>
+</body>
+</html>
+ 

@@ -1,0 +1,23 @@
+<html>
+<head>
+<title> PROBANDO JAVASCRIPT </title>
+<script type="text/JavaScript">
+// saber la edad de una persona
+fechaNac = new Date(2010,9,10);
+fechaHoy = new Date();
+var edad = (fechaHoy.getTime() - fechaNac.getTime())/(365*24*60*60*1000);
+alert(Math.floor(edad));
+// otra forma mejor
+edad=fechaHoy.getFullYear()-fechaNac.getFullYear();
+if (fechaHoy.getMonth() < fechaNac.getMonth())
+	edad--;
+else
+	if (fechaHoy.getMonth() == fechaNac.getMonth())
+		if (fechaHoy.getDate() < fechaNac.getDate())
+			edad--;
+alert(edad);
+</script>
+<body>
+PROBANDO JAVASCRIPT
+</body>
+</html>

@@ -1,0 +1,158 @@
+﻿<html>
+
+	<head>
+	
+		<script>
+
+		// document.nombredelformulario.reset();
+		//documents.forms[0].reset();
+
+		
+		// rellena automaticamente los select con 500 campos
+		function selec(z)
+		{
+			var aux="";
+		
+				for (var x=2;x<=500;x++)
+					{
+						aux += '<option value=\"'+x+'\">'+x+'</option>\n';
+					}
+		
+		
+
+		var punto = document.getElementById( z );
+		console.log(punto);
+		punto.innerHTML=aux ;
+		
+			
+			
+			
+		}
+		// dibuja tabla on change
+		function dibujar()
+		{
+			var x = Number(document.forms['tabla']['filas'].value);
+			//console.log(x);
+			var y = Number(document.forms['tabla']['colum'].value);
+			//console.log(y);
+			var tabla =new Array(x);
+			
+				for (i=0;i<x;i++)
+			{
+				tabla[i]=new Array(y);
+			}
+			var z = document.forms['tabla']['valores'].value;
+			console.log(z);
+			
+			
+			switch (z)
+			{
+			case 'a': var n=1, sum=1;break;
+			case 'b': var n=2, sum=2;break;
+			case 'c': var n=1, sum=2;break;
+			case 'd':
+					var n= Number(document.forms['tabla']['multip'].value);
+					var sum = Number(document.forms['tabla']['multip'].value);
+					break;
+			default:
+			alert("valor radio boton mal introducido");
+			}
+			
+			
+				for (i=0;i<x;i++)
+				{
+					for (j=0;j<y;j++)
+					{
+					tabla[i][j]=n;
+					n=n+sum;
+					}
+				} 
+			var codigo='<table border=1> ';
+			for (i=0;i<x;i++)
+			{
+			codigo+='<tr> ';
+			
+			for (j=0;j<y;j++){
+				codigo+='<td>'+tabla[i][j]+'</td>' ;
+				}
+			codigo+='</tr>';
+			}
+			codigo+='</table>';
+				document.getElementById("diva").innerHTML=codigo;
+
+			
+			
+			
+			
+			
+		}
+		
+		// se ejecuta al principio para rellenar los select
+		function htm()
+		{
+			selec("filas");
+			selec("colum");
+			selec("multip");
+		
+		
+		}
+	
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body onload="htm();" onchange="dibujar()">
+	
+	
+	<h1> PROBANDO ARRAYS BIDIMENSIONALES </h1>
+	
+	<form method="post" action="./index6.html" name="tabla">
+	
+		<label> SELECCIONA: Filas</label>
+			<select name="filas" id="filas">
+				
+			</select>
+			
+		<label>  Columnas</label>
+			<select name="colum" id="colum">
+				
+			</select>	
+
+		<br /> <br />
+
+	<p>RELLENAR CON:</p>
+	<label> De uno en uno
+	<input type="radio" name="valores" value="a" />
+	<br />
+	</label>Pares
+	<input type="radio" name="valores" value="b" />		
+	</label>
+	<br />
+	<label> Impares
+	<input type="radio" name="valores" value="c" />		
+	</label>
+		<br />
+	<label> Multiplo de:
+	<input type="radio" name="valores" value="d" />		
+	</label>
+	<select name="multip" id="multip">
+				
+			</select>
+	
+	<div id="diva"> <!-- espacio para dibujar tabla -->
+	</div>
+	
+	
+	</form>
+	
+	<body>
+
+
+
+</html>
+

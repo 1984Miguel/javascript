@@ -1,0 +1,164 @@
+﻿<html>
+
+	<head>
+	
+		<style>
+		
+			#general
+		{
+			background-color:LightPink;
+			text-align:center;
+			width:60%;
+			margin:auto;
+			
+		}
+		
+		img
+		{
+		height:60%;
+		width:40%;
+		}
+		
+		
+		</style>
+	
+	
+		<script>
+		
+		
+		
+	var suma=0;
+function factura()
+	{
+		
+		var tamanno= Number(document.forms["carta"]["tamanno"].value);
+		console.log(tamanno);
+		
+		var pul= document.getElementsByName("com");
+		
+		for (var x=0; x<pul.length;x++ ) 
+		{
+			if(pul[x].checked) 
+			{
+				tamanno+=Number(pul[x].value);
+				console.log("complemento ok");			
+			}
+		}
+		
+		
+		
+		var cant= Number(document.forms["carta"]["cant"].value);
+		console.log(cant);
+		if (cant>0 && cant<=5)
+		{
+		suma=tamanno*cant;
+		var cant= document.forms["carta"]["total"].value=suma;
+		}
+		else
+		{
+		
+		alert("debes introducir una cantidad entre 1 y 5");
+		document.getElementById("cant").focus();
+		
+		}
+		
+	}
+	
+function promo()
+		{
+		
+		var promo= Number(document.forms["carta"]["postal"].value);
+		var factura=Number(document.forms["carta"]["total"].value);
+		
+		if(!isNaN(promo))
+		{
+		
+			if (factura!=0)
+			{
+				
+				if(promo==28001 || promo==28002)
+				{
+					suma= suma * 0.5;
+					alert("Felicidades tienes un descuento del 50%");
+					var cant= document.forms["carta"]["total"].value=factura/2;
+				}
+				else
+				{
+					alert("este codigo no tiene descuento");
+					
+				}
+				
+			}
+		}	
+			
+			else
+			{
+				document.alert("primero debes caldular el pedido");
+				
+			}	
+		
+		
+		
+		
+		}
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	
+		<div  id="general">
+			<h1> HAMBURGUESAS PEPE'S </h1>
+			<div>
+			<img src="./img/hamburguesa.gif" />
+			</div>
+			
+			<form name="carta" action="./ejercicio2.html" method="post">
+			
+				<label> Elige un tamaño</label>
+					<select name="tamanno">
+						<option value="2">Pequeña</option>
+						<option value="3">Mediana</option>
+						<option value="4">Grande</option>
+						<option value="5">Gigante</option>
+					
+					</select>
+			
+			<p> Combinala con Patata o refresco </p>
+			
+			
+			<input type="checkbox" name="com" value="1" />Patatas
+			<input type="checkbox" name="com" value="1" />Refesco
+			<br /><br />
+			
+			<label>¿Cuantas quieres?</label>
+			<input type="text" name="cant" id="cant" />
+			<br /><br />
+			<input type="button" name="Enviar" value="CALCULAR PRECIO" onclick="factura();"/>
+			<br /> <br />
+			<label>PRECIO TOTAL</label>
+			<input type="text" name="total" readonly="readonly"  />
+			<br /> <br />
+				<label>Introduce tu codigo postal para obtener descuentos</label>
+			<input type="text" name="postal"  onchange="promo();"/>
+			
+			
+					
+		
+			</form>
+		
+		</div> <!--final div general >-->
+	
+	
+	
+	</body>
+
+
+
+</html>
+

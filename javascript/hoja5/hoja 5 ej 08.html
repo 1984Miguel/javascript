@@ -1,0 +1,228 @@
+<html>
+<head>
+<style >
+
+table
+{
+border : 1px solid purple; 
+border-collapse:collapse;
+margin:auto;
+}
+
+th
+{
+	background-color:orange;
+	
+}
+
+td , th
+{
+	height:25px;
+	width:25px;
+	border : 1px solid purple; 
+}
+input
+{
+	margin:auto;
+	text-align:center;
+	
+}
+#botones
+{
+
+	margin:auto;
+	text-align:center;
+	width:30%;
+
+}
+
+
+ </style>
+ 
+ 
+ <script>
+ 
+ var clave="123456";
+var poscomp= comp(6);
+console.log (poscomp);
+var aux="";
+
+ 
+ 
+ function aleatorio(x,y)
+ {
+	 var ale = parseInt(Math.random(x,y)*y);
+	 return ale;
+	 
+ }
+function comp(n)
+{
+	var arr=  new Array();
+	
+	for (var x=0;x<n ; x++)
+	{
+		arr[x]=false;
+		
+		
+	}
+	
+	return arr;
+}
+ 
+ 
+ 
+ function tabla()
+ {
+	 
+		
+	  
+	  var contped=0;
+	   var alea=0;
+	 
+	 	  for (var x=0;x<=6 && contped<3;x++)
+	  {
+		  
+		  
+		 
+		 do {
+			 alea=aleatorio(0,6);
+			 
+			 if (!poscomp[alea])
+			 {
+				
+				poscomp[alea]=true;
+				contped++;
+			 }
+		  } while(!poscomp[x] && contped<3)
+		  
+	  }
+	 
+	 console.log(poscomp);
+	 
+	 pintar();
+	 
+
+
+	  
+	  
+	  var stbot="<input type=button value='BORRAR' onclick='borrar()'> <br -/> <br />";
+	  var pos= comp(10);
+	 
+	 
+	  for (var x=0;x<=9;x++)
+	  {
+		  
+		  
+		 
+		 do {
+			 alea=aleatorio(0,10);
+			 
+			 if (!pos[alea])
+			 {
+				stbot+= "<input type='button' id='bot"+x+ "' value="+alea +" onclick='buscar(this.value)'>";
+				pos[alea]=true;
+			 }
+		  } while(!pos[x])
+		  
+	  }
+	  stbot+="<br /> <br /> <input type=button value='COMPROBAR' onclick='comprobar()'>";
+	  document.getElementById("botones").innerHTML=stbot;
+	 
+	 
+ }
+ 
+ 
+ function buscar(valor)
+ {
+	
+	 aux+=valor;
+	 console.log(aux);
+	 console.log(aux.length);
+	 pintar();
+	 
+ }
+ 
+ 
+ function pintar()
+ {
+	 
+	 	 var tabla="<table> <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr><tr>";
+	 
+	 
+	 for (var x=0;x<6;x++)
+	 {
+		 if  (!poscomp[x])
+		 {
+			 tabla+="<td>--</td> ";
+			 
+		 }
+		 		 else if (!poscomp[x] && aux.indexOf(aux.length-1) !=-1)
+		 {
+			 tabla+="<td>"+aux.indexOf(aux.length-1) +"</td> ";
+			 
+		 }
+	else
+		{
+			tabla+="<td>**</td> ";
+			
+		}
+		 
+	 }
+	 
+	 
+
+	 
+	 
+	 
+	 
+	 tabla+= "</tr><table>";
+	  document.getElementById("tabladiv").innerHTML=tabla;
+	  
+	 
+ }
+ 
+ function borrar()
+ {
+	 
+	 clave="";
+	 return clave;
+ }
+ 
+ 
+ 
+ </script>
+ 
+ 
+ 
+ 
+ 
+
+<body onload="tabla();">
+ 
+<div id="tabladiv"">
+
+</div>
+
+<br/> <br />
+
+<div id="botones"">
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+</body>
+
+</html>

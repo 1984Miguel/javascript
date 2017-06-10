@@ -1,0 +1,171 @@
+<html>
+
+	<head>
+	
+	
+		<script>
+		
+		var arrayCursos= new Array();
+		arrayCursos.push( new Curso ("DAW","Desarrollo de aplicaciones web"));
+		arrayCursos.push (new Curso("ASIR","Administracion de sistemas"));
+		arrayCursos.push (new Curso("MARK","Marketing"));
+		arrayCursos.push (new Curso("FIN","Administracion y finanzas"));
+		
+		
+	
+		
+		
+		var arrayAlumnos= new Array();
+		arrayAlumnos.push(new Alumno("Pepe",659784512,"15/2/1984",arrayCursos[0]));
+		arrayCursos[0].alta();
+		arrayAlumnos.push(new Alumno("Juan",659781512,"15/2/1986",arrayCursos[0]));
+		arrayCursos[0].alta();
+		arrayAlumnos.push(new Alumno("Eloy",659781512,"15/2/1986",arrayCursos[1]));
+		arrayCursos[1].alta();
+		
+		
+		console.log(arrayCursos);
+		
+		console.log(arrayAlumnos);
+		
+		
+		
+		
+		function Curso(siglas,nombre)
+		{
+			this.siglas=siglas;
+			this.nombre=nombre;
+			this.plazas=0;
+			this.maximas=20;
+			this.alta= function()
+						{
+							if(this.plazas<this.maximas)
+								{
+									this.plazas++;
+								}
+						}
+			this.baja=function()
+						{
+							if(this.plazas>0)
+							{
+								this.plazas--;
+								
+							}
+						}
+		}
+		
+		
+		
+		function Alumno(nombre,telefono,nacimiento,curso)
+		{
+			
+			this.nombre=nombre;
+			this.telefono=telefono;
+			this.nacimiento=nacimiento;
+			this.curso= curso;
+			
+		}
+		
+		function matricular()
+		{
+			var string=  "<form name='alta' >"+
+								"Nombre<input type='text' name='nombre' /><br />"+
+							 "Telefono<input type='text' name='telefono' /><br />"+	
+							  "Fecha nacimiento<input type='text' name='nacimiento' /><br />"+
+							   "<input type='button' value='enviar'  onclick='matricularAlumno()'/><br />"+
+							"</form>";
+			
+			document.getElementById("div0").innerHTML=string;
+		}
+		
+		function matricularAlumno()
+		{
+			arrayAlumnos.push(new Alumno(document.alta.nombre.value,document.alta.telefono.value,document.alta.nacimiento.value,arrayCursos[document.getElementById("curso").value]))
+			arrayCursos[document.getElementById("curso").value].alta();
+			document.getElementById('div0').innerHTML="<h3> Alumno -añadido </h3>";
+			
+		}
+		
+		
+		
+		function plazas()
+		{
+			var string="<h3> PLAZAS LIBRES </h3> <table>";
+		string+="<tr><td>Siglas</td><td>Nombre</td><td>Plazas</td></tr>";
+			for (var x=0;x<arrayCursos.length;x++)
+			{
+				if (arrayCursos[x].plazas<20)
+				{
+					string+="<tr><td>"+arrayCursos[x].siglas+"</td><td>"+arrayCursos[x].nombre+"</td><td>"+arrayCursos[x].plazas +"</td></tr>";
+					
+					
+				}
+				
+			}
+			
+			string+="</table>";
+			document.getElementById('div0').innerHTML=string;
+			
+		}
+		
+		function alumnosmat()
+		{
+			var cursoaux =document.getElementById("curso").value;
+			var nombreaux= arrayCursos[cursoaux].siglas;
+			var contador =0;
+			
+			console.log(cursoaux);
+			console.log(nombreaux);
+		
+		string="<h3> Alumnos Matriculados </h3><table border='2'>";
+		
+			for (var x=0;x<arrayAlumnos.length;x++)
+			{
+				if(arrayAlumnos[x].curso.siglas == nombreaux)
+					{
+						string+="<tr><td>" +arrayAlumnos[x].nombre + "</td><td>"+arrayAlumnos[x].curso.siglas+"</td></tr>"
+						contador++;
+					}
+					
+				
+			}
+			string+="</table>";
+			document.getElementById('div0').innerHTML=string;
+			
+		}
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	
+	selecciona curso
+	
+	<select name="curso" id="curso" >
+		<option value="0"> DAW </option>
+		<option value="1"> ASIR </option>
+		<option value="2"> MARK </option>
+		<option value="3"> FIN </option>
+	
+	<select>
+	</br>
+	<input type="button" name="madricular" value="Matricular" onclick="matricular()"/>
+	<input type="button" name="madricular" value="Baja" />
+	<input type="button" name="Alumnos" value="Alumnos" onclick="alumnosmat()" />
+	<input type="button" name="plazas" value="Plazas" onclick="plazas()">
+	
+	
+	<div id="div0"> </div>
+	
+	
+	
+	</body>
+
+
+
+</html>

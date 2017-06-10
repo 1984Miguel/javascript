@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Ejemplo de un mostrador de diapositivas</title> 
+<style type="text/css">
+	body{
+		font-family:"Trebuchet MS", Helvetica, sans-serif;
+	}
+	div{
+		width:600px;
+		margin-right:auto;
+		margin-left:auto;
+		padding:20px;
+		}
+</style>
+<script type="text/javascript">
+
+var array = document.getElementsByTagName('li');
+console.log(array)
+var posicion=0;
+
+function cargar()
+{
+document.getElementById('fotos').innerHTML="<img src='"+array[0].innerHTML+".jpg' />";
+array[0].style.color="orange"
+
+}
+
+function adelante()
+{
+
+array[posicion].style.color="";
+if (posicion<5)
+{
+posicion++;
+}
+else
+{
+posicion =0;
+}
+
+
+document.getElementById('fotos').innerHTML="<img src='"+array[posicion].innerHTML+".jpg' />";
+array[posicion].style.color="orange"
+
+}
+
+function atras()
+{
+
+
+array[posicion].style.color="";
+if (posicion>0)
+{
+posicion--;
+}
+else
+{
+posicion =5;
+}
+
+
+document.getElementById('fotos').innerHTML="<img src='"+array[posicion].innerHTML+".jpg' />";
+array[posicion].style.color="orange"
+
+
+
+}
+
+</script>
+</head>
+<body onload="cargar()">
+<div>
+<ul>
+<li>Tulips</li>
+<li>Chrysanthemum</li>
+<li>Desert</li>
+<li>Hydrangeas</li>
+<li>Lighthouse</li>
+<li>Penguins</li>
+</ul>
+<input type="button" value="atras" onclick="atras()">
+<input type="button" value="adelante" onclick="adelante()">
+</div>
+<div id="fotos"></div>
+</body>
+</html>
+ 

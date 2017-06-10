@@ -1,0 +1,88 @@
+<html>
+<head> 
+<script>
+
+
+function cambiarTam(valor)
+{
+	
+console.log(valor);
+
+	
+document.getElementById("texto").style.fontSize=valor;
+
+}
+
+function cambiarTipo(valor)
+{
+document.getElementById("texto").style.fontFamily=valor;	
+	
+}
+
+function cambiarColor(valor)
+{
+	console.log(valor)
+document.getElementById("texto").style.color=valor;	
+	
+}
+
+
+
+</script>
+</head>
+<body>
+<div id="controles">Tamaño del texto
+<select id="tamanyo" onchange="cambiarTam(this.value)">
+<option value="8">8</option>
+<option value="10">10</option>
+<option value="12">12</option>
+<option value="14">14</option>
+<option value="16">16</option>
+<option value="20">20</option>
+</select> 
+
+Tipo de texto
+<select id="tipo" onchange="cambiarTipo(this.value)">
+<option value="arial">arial</option>
+<option value="verdana">verdana</option>
+<option value="geneva">geneva</option>
+<option value="georgia">georgia</option>
+</select>
+
+color del texto 
+<select id="color" onchange="cambiarColor(this.value)">
+<option value="#000000">negro</option>
+<option value="#CCCCCC">gris</option>
+<option value="#6699FF">azul</option>
+</select>
+
+</div>
+<div id="controles2">
+Negrita&nbsp;
+<input type="checkbox" id="negrita" onclick="cambiarNegrita(??)"/>&nbsp;&nbsp;&nbsp;&nbsp; 
+Cursiva&nbsp;
+<input type="checkbox" id="cursiva" onclick="cambiarCursiva(??)"/>&nbsp;&nbsp;&nbsp;&nbsp;Subrayado&nbsp;
+<input type="checkbox" id="subrayado" onclick="cambiarSubrayado(??)"/>
+&nbsp;&nbsp;&nbsp;&nbsp;Alineación&nbsp;
+<input name="a" type="radio" value="left" onclick="cambiarAlineacion(??)"/>&nbsp;Izq&nbsp;
+<input name="a" type="radio" value="right" onclick="cambiarAlineacion(??)"/>&nbsp;Der&nbsp;
+<input name="a" type="radio" value="center" onclick="cambiarAlineacion(??)"/>&nbsp;Cen&nbsp;
+<input name="a" type="radio" value="justify" onclick="cambiarAlineacion(??)"/>
+&nbsp;Jus&nbsp;
+</div>
+<div id="texto">
+<br>JavaScript es un lenguaje de programación interpretado que se utiliza 
+<br>fundamentalmente para dotar de comportamiento dinámico a las páginas web. 
+<br>Fue diseñado para que su código se incrustase en documentos HTML y fuera 
+<br>interpretado por el navegador web.
+<br>
+<br>Mediante JavaScript nos encargaremos de realizar acciones en el cliente, 
+<br>como pueden ser pedir datos, confirmaciones, validación de datos en 
+<br>formularios,  incorporar efectos como texto que aparece y desaparece,
+<br>animaciones, acciones que se activan al pulsar botones,  manejar ventanas
+<br>con mensajes de aviso al usuario…
+
+</div>
+
+</body>
+</html>

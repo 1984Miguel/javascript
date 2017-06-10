@@ -1,0 +1,46 @@
+
+<html>
+	<head>
+    <title>HOJA 1 Ejercicio 2</title>
+		<style>
+			#cuadro {
+				background:#000000;
+				display:none;
+				width:100px;
+				height:100px;
+				text-align:center;
+				color:#FF6000 ;
+				margin:40px;
+			}
+		</style>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+		$(document).ready(function(){
+
+		$("#mostrarocultar").click(function(){
+	if ($( "div").is(":hidden"))
+	{
+		$("div").css("display","inline");
+	}	
+	else
+	{
+	$("div").css("display","none");
+	}
+	
+		});
+	
+		});
+
+
+</script>
+		
+		
+		
+	</head>
+	<body>
+	<input type="button" id="mostrarocultar" value="Mostrar / Ocultar" 
+			style="font-size:14px;cursor:pointer;margin:15px;padding:5px;">
+	<div id="cuadro" ><br><br> AGGGG!!!!</div>
+	</body>
+</html>

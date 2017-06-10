@@ -1,0 +1,47 @@
+<html>
+
+	<head>
+	
+		<script>
+		
+		
+		var dia = window.prompt("dame un dia");
+		var mes = window.prompt("dame un mes");
+		var anno = window.prompt("dame un año");
+		
+		var nac = new Date(anno,mes,dia);
+		var hoy = new Date();
+		var edad="";
+		
+		
+		var edad=hoy.getFullYear()-nac.getFullYear();
+		if (hoy.getMonth() < nac.getMonth())
+		{
+			edad--;
+		}
+		else
+		{	
+		if (hoy.getMonth() == nac.getMonth())
+				{if (hoy.getDate() < nac.getDate())
+					{
+						edad--;
+				}}
+		alert(edad);
+		}
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	<body>
+
+
+
+</html>
+

@@ -1,0 +1,231 @@
+<html>
+<head>
+<style type="text/css">
+			body{
+				font-family:"Trebuchet MS", Helvetica, sans-serif;
+			}
+			div{
+				width:300px;
+				margin-right:auto;
+				margin-left:auto;
+				padding:20px;
+				text-align:center;				
+				border:1px double #06446A;
+				border-radius:5px;
+			}
+			table{
+				margin-right:auto;
+				margin-left:auto;
+				text-align:center;
+			}
+			td{
+				width:30px;
+				height:30px;
+				text-align:center;
+				border:1px solid black;
+			}
+</style>
+
+<script>
+
+var arr = new Array();
+
+function rellenar()	{
+		
+		
+			var valor= document.getElementById('idcuantos').value;
+			console.log(valor);
+			var valoraux = parseInt(valor);
+
+			if(valor !=valoraux)
+			{
+				alert("Debes introducir un entero en la casilla tamaño")
+				
+			}
+			else
+			{
+			 	
+				var ped=0 , pedaux=0;
+				for (var x=0; x<valor; x++)
+					{
+
+				
+						do{
+								var ped=window.prompt("Dame la cadena " + (x+1) );
+								var pedaux=parseInt(ped);
+						}while(ped!=pedaux);
+
+						arr[x]=ped;
+					}
+				console.log(arr);
+				
+                pintar(arr);
+			}
+	}
+	
+		function pintar(ar)
+		{
+			
+			var cad ="<table><tr>"
+			
+			for (var x=0;x<ar.length;x++)
+			{
+				cad += "<td>" ;
+				cad += ar[x] ;
+				cad+= "</td>";
+				
+			}
+			cad += "</tr></table>";
+			
+			document.getElementById("divtabla").innerHTML = cad;
+		}
+	
+	
+		{
+			
+			
+			
+		}
+	
+	
+		function sumar()
+		{
+
+			if (arr.length==0)
+			{
+				alert("primero debes rellenar el array");
+				
+			}
+			else
+				console.log(arr);
+			{
+				var cont=Number(0);
+				for (x=0;x<arr.length;x++)
+				{
+					cont += Number(arr[x]);
+					console.log(cont);
+				
+					
+					
+				}
+					document.getElementById("resultado").value=cont;
+				
+			}	
+			
+			
+		}
+		
+				function media()
+		{
+
+			if (arr.length==0)
+			{
+				alert("primero debes rellenar el array");
+				
+			}
+			else
+				console.log(arr);
+			{
+				var cont=Number(0);
+				for (x=0;x<arr.length;x++)
+				{
+					cont += Number(arr[x]);
+					console.log(cont);
+				
+					
+					
+				}
+					document.getElementById("resultado").value=cont/arr.length;
+				
+			}	
+			
+			
+		}
+	
+	
+						function maximo()
+		{
+			var max =-9999999999999;
+			if (arr.length==0)
+			{
+				alert("primero debes rellenar el array");
+				
+			}
+			else
+				console.log(arr);
+			{
+				var cont=Number(0);
+				for (x=0;x<arr.length;x++)
+				{
+					if(arr[x]>max)
+					{
+						max=arr[x];
+						
+					}
+				
+					
+					
+				}
+					document.getElementById("resultado").value=max;
+				
+			}	
+			
+			
+		}
+		
+								function minimo()
+		{
+			var min =9999999999999;
+			if (arr.length==0)
+			{
+				alert("primero debes rellenar el array");
+				
+			}
+			else
+				console.log(arr);
+			{
+				var cont=Number(0);
+				for (x=0;x<arr.length;x++)
+				{
+					if(arr[x]<min)
+					{
+						min=arr[x];
+						
+					}
+				
+					
+					
+				}
+					document.getElementById("resultado").value=min;
+				
+			}	
+			
+			
+		}
+
+
+</script>
+
+
+
+</head>
+<body onload="document.forms[0].reset()">
+<form>
+Indica el tamaño del array <input type="text" id="idcuantos" size=4 >
+<br><br><br>
+<div id="divtabla">
+ AQUI CARGARE TU ARRAY
+</div>
+<br><br><br>
+<input type="button" value="RELLENAR ARRAY" onclick="rellenar()">
+<input type="button" value="SUMA" onclick="sumar()">
+<input type="button" value="MEDIA" onclick="media()">
+<input type="button" value="MAX" onclick="maximo()">
+<input type="button" value="MIN" onclick="minimo()">
+<br><br><br>
+<div>
+RESULTADO <input type="text" size=4 id="resultado" readonly="readonly">
+</div>
+</form>
+</body>
+</html>

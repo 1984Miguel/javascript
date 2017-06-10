@@ -1,0 +1,180 @@
+<html>
+<head>
+<title>Página sencilla</title>
+<style type="text/css">
+ body{text-align:center;
+   font-family:Comic Sans ms;
+   }
+div{
+	width:700px;
+	height:600px;
+	margin-left:auto;
+	margin-right:auto;
+	}
+#pos1, #pos2 {
+	position:relative;
+	float:left;
+	}
+ </style>
+ 
+ 
+
+ 
+<script>
+
+ function iniciof()
+ {
+/*
+document.forms.clear();
+*/
+ }
+
+function peligrof()
+{
+
+var nodos=  document.getElementsByTagName("h3");
+
+
+for (var x =0;x<nodos.length;x++)
+	{
+nodos[x].innerHTML="PELIGRO"
+	
+	
+	}
+
+
+console.log(nodos);
+
+
+}
+function colorf(valor)
+{
+
+
+var nodos=  document.getElementsByTagName("p");
+
+console.log(nodos)
+
+for (var x =0;x<nodos.length;x++)
+	{
+
+nodos[x].style.color=valor;
+	
+	}
+}
+
+
+
+function cambiar()
+{
+
+var nodoPrincipal= document.getElementsByTagName("a");
+console.log(nodoPrincipal);
+
+var nombreA =nodoPrincipal[0].innerHTML;
+var nombreB =nodoPrincipal[1].innerHTML;
+var nombreC =nodoPrincipal[2].innerHTML;
+
+
+nodoPrincipal[0].innerHTML= nombreC;
+nodoPrincipal[1].innerHTML= nombreA;
+nodoPrincipal[2].innerHTML= nombreB;
+
+
+
+
+
+var nodoA= nodoPrincipal[0].getAttribute("href");
+var nodoB= nodoPrincipal[1].getAttribute("href");
+var nodoC= nodoPrincipal[2].getAttribute("href");
+
+
+nodoPrincipal[0].setAttribute("href",nodoC);
+nodoPrincipal[1].setAttribute("href",nodoA);
+nodoPrincipal[2].setAttribute("href",nodoB);
+
+
+
+
+
+
+
+}
+
+
+
+
+function ocultar()
+
+{
+
+
+
+
+
+
+var nodos =document.getElementsByName("ocultable")
+console.log(nodos);
+for (var x =0;x<nodos.length;x++)
+	{
+
+nodos[x].style.visibility="hidden";
+	
+	}
+}
+
+
+
+
+</script>
+
+
+
+</head>
+<body>
+<div>
+<fieldset id="pos1">
+<h3> FORMULARIO UNO </h3>
+<p>Este párrafo es el primero</p>
+<form name="form1">
+Un campo <input type="text" name="campo1" value="20"> <br>
+Otro campo <input type="text" name="campo2" value="40">
+<br>
+Y otro más<input type="text" name="campo3" value="50">
+<br><br>
+</form>
+
+<h3> FORMULARIO DOS </h3>
+<form name="form3">
+Un campo <input type="text" name="ocultable">
+<br>
+Otro campo <input type="text" name="campo5">
+<br>
+Y otro más<input type="text" name="ocultable">
+</form>
+<p>Este párrafo es el segundo</p>
+</fieldset>
+<fieldset id="pos2">
+<p>PRIMERO 
+ <br> <a href="http://www.google.es/"> Google </a> 
+ <br> <a href="http://www.elpais.es/"> El País </a> </p>
+No párrafo
+<p>SEGUNDO
+ <br> <a href="http://www.marca.es/"> Marca </a> 
+</fieldset>
+<fieldset id="pos3">
+<h3> FORMULARIO CAMBIOS </h3>
+<p>Este párrafo es el de cambios</p>
+<form name="form2">
+<input type="button" value="limpiar" onclick="iniciof()" />
+<input type="button" value="peligro" onclick="peligrof()" / >
+<select id="color" onchange="colorf(this.value)">
+	<option>green</option><option>blue</option><option>yellow</option>
+</select>
+<br><br><input type="button" value="intercambiar links" onclick="cambiar()">
+<input type="button" value="ocultar ocultables" onclick="ocultar();">
+</form>
+</fieldset>
+</div>
+</body>
+</html>

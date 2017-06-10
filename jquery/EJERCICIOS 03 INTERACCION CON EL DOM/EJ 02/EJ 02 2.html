@@ -1,0 +1,30 @@
+<html> 
+<head>
+	<title>jQuery</title>
+	<style>
+			body {
+				background: black;
+				}
+			#lista { width:520px; }
+			#lista ol { font-style:italic; font-family:Georgia, Times, serif; font-size:24px; color:#bfe1f1;  }			
+			#lista ol li p { padding:8px; font-style:normal; font-family:Arial; font-size:13px; color:#eee; border-left: 1px solid #999; }
+			#lista ol li p em { display:block; }
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"> </script>
+	<script src='funciones_jquery.js'></script>
+</head>
+<body>
+	<div id="lista">
+		<h1 style="color:#eee">Los Lenguajes de Programación</h1>
+		<ol>
+			<li><p><em>Lenguajes de script</em> javascript, php ...</p></li>
+			<li><p><em>Lenguajes de marcas</em> html, xml , xsl ...</p></li>
+			<li><p><em>Lenguajes estructurados</em> Cobol, Lenguaje C, Pascal ...</p></li>
+			<li><p><em>Lenguajes Orientados a Objetos</em> C++, Java ...</p></li>
+		</ol>
+	</div>
+		
+		<button id='anterior'>ANTERIOR</button>
+		<button id='siguiente'>SIQUIENTE</button>
+	</body>
+</html>

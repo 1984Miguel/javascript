@@ -1,0 +1,212 @@
+<html>
+<head>
+<style type="text/css">
+table{
+	background-color: #F7F793;
+	border: 1px solid #75756A;
+	width:300px;
+	text-align: center;
+	margin: auto;
+	box-shadow: 5px 5px 12px #F5F5DC;
+	font-size: 20px;
+	font-family: 'Indie Flower', cursive;
+}
+td{
+	border: 1px solid red;
+	width: 21px;
+}
+
+img
+{
+height:50%;
+width:30%;
+}
+
+ </style>
+
+<script>
+
+mat=crearMatriz();
+matEnco=crearMatrizComp()
+var fallos=0;
+
+function iniciar()
+{
+	
+	dibujarTabla(11);// pongo un valor que nunca va a salir
+	error(fallos);
+	console.log(mat);
+	console.log(matEnco);
+
+}
+function crearMatriz()
+{
+
+var matriz = new Array();
+
+for (var x=0;x<4;x++)
+	{
+		matriz[x]= new Array();
+			for (var y =0; y < 4;y++)
+			{
+				matriz[x][y]=Math.round(Math.random()*(9 - 0))+0;
+				
+				
+				
+			}
+	}
+	return matriz;
+}	
+
+function crearMatrizComp()
+{
+
+var matriz = new Array();
+
+for (var x=0;x<4;x++)
+	{
+		matriz[x]= new Array();
+			for (var y =0; y < 4;y++)
+			{
+				matriz[x][y]=false;
+				
+				
+				
+			}
+	}
+	return matriz;
+}	
+	
+	function dibujarTabla(aux)
+	{
+		var hml = "<table> ";
+		var contador=false
+		for (var x=0;x<4;x++)
+		{
+			 hml += "<tr>"
+			for (var y =0; y < 4;y++)
+			{
+				if(!matEnco[x][y] && mat[x][y]==aux && !contador)
+				{
+				hml+=" <td>"+  mat[x][y]  +"</td>";
+				contador=true
+				matEnco[x][y]=true;
+				
+				}
+				else if (matEnco[x][y])
+				{
+				hml+=" <td>"+  mat[x][y]  +"</td>";
+				
+				}
+				else
+				{
+				hml+=" <td> **</td>";
+				}
+				
+			}
+			 hml += "</tr>"
+			
+		}
+
+		hml+="<table>";
+		
+		
+		document.getElementById("div1").innerHTML=hml;
+		return contador;
+		
+	}
+	
+	
+	
+	function buscar(valor)
+	{
+	var nuevo=false;
+	nuevo=dibujarTabla(valor);
+	
+	
+	if(!nuevo)
+	{
+	fallos++
+	}
+	
+	if (fallos<=5)
+	{
+	error(fallos);
+	
+		if (gana())
+		{
+			document.getElementById("div0").innerHTML="<img src='http://4.bp.blogspot.com/-BOFmNWGnVGQ/VXXfmu99afI/AAAAAAAAALo/y6Y3T0nW-Sc/s1600/tumblr_n9vulzbJCb1terwlso1_400%2B%25284%2529.gif' />";
+			alert("felicidades has ganado el juego");
+			
+		}
+	
+	
+	}
+	else
+	{
+	alert("Has perdido llevas " + fallos + "intentos fallidos");
+	document.getElementById("div0").innerHTML="<img src='http://fc02.deviantart.net/fs13/f/2007/079/3/c/Nelson_GIF_by_sambu.gif' /> ";
+	
+	}
+	
+	}
+	
+	
+	
+	function error(aux)
+	{
+	var aviso = "Llevas " + aux + " intentos fallidos";
+	document.getElementById("div2").innerHTML=aviso;
+	}
+
+
+	function gana()
+	{
+	
+	var todos=true;
+		for (var x=0;x<4;x++)
+		{
+			 
+			for (var y =0; y < 4;y++)
+			{
+			if (!matEnco[x][y])
+				{
+				todos=false;
+				}
+			
+			
+			}
+		}	
+			return todos;
+	
+	}
+	
+
+</script>
+
+
+
+
+
+
+<body  onload="iniciar()" >
+ 
+<div id="div0">
+ <input type="button" value=1 onclick="buscar(this.value)"> 
+	 <input type="button" value=2 onclick="buscar(this.value)"> 
+	 <input type="button" value=3 onclick="buscar(this.value)"><br> 
+ <input type="button" value=4 onclick="buscar(this.value)"> 
+	 <input type="button" value=5 onclick="buscar(this.value)"> 
+	 <input type="button" value=6 onclick="buscar(this.value)"> <br> 
+ <input type="button" value=7 onclick="buscar(this.value)"> 
+	 <input type="button" value=8 onclick="buscar(this.value)"> 
+	 <input type="button" value=9 onclick="buscar(this.value)"> <br> 
+ <input type="button" value=0 onclick="buscar(this.value)">  
+</div>
+<div id="div1">
+</div>
+<div id="div2">
+</div>
+</body>
+
+</html>

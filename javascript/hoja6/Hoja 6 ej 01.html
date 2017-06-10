@@ -1,0 +1,217 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<style type="text/css">
+body{
+				font-family:"Trebuchet MS", Helvetica, sans-serif;
+			}
+div{
+	width:600px;
+	margin-right:auto;
+	margin-left:auto;
+
+	text-align:center;				
+	border:1px double #06446A;
+	border-radius:5px;
+}
+</style>
+
+
+<script type="text/JavaScript"> 
+var usuarios=new Array();
+function cargarUsuarios (){
+usuarios [0]= new Usuario ('pepe','pepin');
+usuarios [1]= new Usuario ('ana','anita');
+usuarios [2]= new Usuario ('lola','lolita');
+document.forms[0].reset();
+}
+/*
+function conectar()
+{
+
+var auxnombre = document.forms[0][0].value;
+var auxpass = document.forms[0][1].value;
+
+this.conectado=true;
+this.accesos++;
+
+console.log(usuarios);
+}
+
+*/
+
+
+
+function desconectar(){
+}
+function Usuario (usu,pass)
+{
+this.nombre=usu;
+this.contrasenna=pass;
+this.accesos=0;
+this.conectado=false;
+this.tiempoTotal=0;
+this.ultima= 0;
+//radesto de propiedades inicializadas convenientemente
+this.conectar =  function()
+{
+
+this.conectado=true;
+this.accesos++;
+this.ultima=new Date();
+console.log(usuarios);
+
+}
+
+
+
+this.desconectar = desconectar;
+}
+
+function realizaConexion(){
+// si no se ha rellenado usu o pass, ERROR
+
+	var auxnombre = document.forms[0][0].value;
+	var auxpass = document.forms[0][1].value;
+	var usuen=false;
+	var passen=false;
+	var auxpos= 0;
+	
+	console.log(auxnombre);
+	console.log(auxpass);
+
+	if (auxnombre=="" && auxpass== "")
+	{
+	alert("Debes intoducir nombre y contrase√±a")
+	
+	}
+	else if (auxnombre=="" )
+	{
+	alert("Debes intoducir nombre")
+	
+	}
+	else if ( auxpass== "")
+	{
+	alert("Debes intoducir contrase√±a")
+	
+	}
+	else
+	{
+	
+	
+		for( var x=0; x<usuarios.length;x++)
+		{
+		
+			
+			if(auxnombre==usuarios[x]['nombre'] && auxpass==usuarios[x]['contrasenna'] && usuarios[x]['conectado'])
+			{
+			
+			alert("este usuario ya esta conectado");
+			}	
+			
+			
+			else if(auxnombre==usuarios[x]['nombre'] && auxpass==usuarios[x]['contrasenna'])
+			{
+			usuen=true;
+			passen=true;
+			auxpos=x;
+			
+			}	
+	
+		
+		
+		
+		}
+
+
+			if (usuen && passen)
+			{
+				usuarios[auxpos].conectar();
+				
+			}
+			else
+			{
+				alert("El usuario no se encuentra en la base de datos");
+			}
+	
+	
+	
+	}
+	
+	
+	
+	
+// buscar en el array de usuarios a usu
+// si no existe ERROR
+// comprobar que coincida la contraseÒa, si no es asÌ ERROR
+// comprobar que no estÈ ya conectado, si lo est· ERROR
+// si todo ha ido bien, ejecutar el mÈtodo conectar() sobre el usuario 
+}	
+function anulaConexion()
+{
+
+
+
+		var auxnombre = document.forms[0][0].value;
+		var auxpass = document.forms[0][1].value;
+		var dateauc =new Date();
+		
+		for (var x=0;x< usuarios.length;x++)
+		{
+			if (auxnombre==usuarios[x]['nombre'] && usuarios[x]['conectado'])
+			{
+				usuarios[x]['tiempoTotal']+=(dateauc.getTime()-usuarios[x]['ultima'].getTime())/1000;
+				usuarios[x]['conectado']=false
+				
+				
+			}
+			
+			
+		}
+
+
+
+
+
+}
+function mostrar(){
+	var auxst="<table>";
+for (x=0;x< usuarios.length;x++)
+	{
+	if (usuarios[x]['conectado'])
+		{
+			
+			auxst+="<tr><td>"+usuarios[x]['nombre'] + "</td><td>" + usuarios[x]['ultima'] + "</td><td>" + usuarios[x]['accesos'] + 
+			"</td><td>"+  usuarios[x]['tiempoTotal']  +" segundos</td></tr>" ;
+			
+		}
+		
+		
+	}
+	
+	auxst+="</table>";
+	console.log(auxst);
+
+	document.getElementById("div1").innerHTML= auxst
+}
+
+console.log(usuarios);
+</script>
+</head>
+<body onload="cargarUsuarios()">
+<div id="div0">
+<p> PROBANDO CONEXIONES </p>  
+<form>
+Usuario <input type="text" id="usu" size = "15">
+Password <input type="text" id="pass" size = "15">
+<br><br><br>
+<input type="button" value="CONECTAR" onclick="realizaConexion()">
+<input type="button" value="DESCONECTAR" onclick="anulaConexion()">
+<br><br><br>
+<input type="button" value="USUARIOS CONECTADOS" onclick="mostrar()">
+ </form>
+ <div id="div1">
+ </div>
+ </font>
+ </body>
+</html>

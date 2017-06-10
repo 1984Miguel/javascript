@@ -1,0 +1,89 @@
+<html>
+<head>
+<style>
+#container {
+		position:relative;
+		margin:auto;
+		width:800px;
+		}
+#id1 {
+		position:absolute;
+		left:20px;
+		top:50px;
+		}
+#id2 {
+		position:absolute;
+		left:200px;
+		top:50px;
+		}
+#id3 {
+		position:absolute;
+		left:350px;
+		top:50px;
+		}
+</style>
+
+
+	
+		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+
+
+$(document).ready(function(){
+
+$("li").click(function(){
+$("li").css("color","black");
+$("div").css("border","none")
+
+
+$(this).css("color","blue");
+$(this).parent().parent().css("border","1px solid red");
+$(this).prev().css("color","green");
+$(this).next().css("color","green");
+
+});
+
+});
+
+
+
+
+
+</script>
+
+</script>
+
+
+</head>
+<body>
+<div id="#container">
+
+<div id="id1"> 
+<ul>
+<li> A </li>
+<li> B </li>
+<li> C </li>
+<li> D </li>
+<li> E </li>
+</ul>
+</div>
+<div id="id2">
+<ul>
+<li> 1 </li>
+<li> 2 </li>
+<li> 3 </li>
+</ul>
+</div>
+<div id="id3">
+<ul>
+<li> I </li>
+<li> II </li>
+<li> III </li>
+<li> IV </li>
+<li> V </li>
+</ul>
+</div>
+</div>
+</body>
+</html>

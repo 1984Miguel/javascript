@@ -1,0 +1,65 @@
+<html>
+
+	<head>
+	
+		<script>
+		
+		
+	function pedir()
+	{
+		
+		var arr = new Array();
+		var num=0
+		for (var x=0; x<10;x++)
+		{
+			 num= window.prompt("Dame el numero "+ x);
+
+				if (num%2==0)
+				{
+					arr.unshift(num);
+					
+				}
+				else
+				{
+				arr.push(num);
+					
+				}
+			
+			escribir(arr)
+			
+		}
+		
+	}
+		function escribir(ar)
+		{
+			for (var x=0;x<=ar.length;x++)
+			{
+				
+				if (!isNaN(ar[x]))
+				
+				document.write(ar[x] + "*")
+				
+			}
+document.write("<br />")
+			
+		
+		
+		
+	}
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body onload="pedir();">
+	
+	<body>
+
+
+
+</html>
+

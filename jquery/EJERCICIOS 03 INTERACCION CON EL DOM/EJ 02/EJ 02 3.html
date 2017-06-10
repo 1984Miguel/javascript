@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>jQuery</title>
+	<style>
+			body {
+				background: black;
+				}
+			#list4 { width:320px; font-family:Georgia, Times, serif; font-size:15px; }
+			#list4 ul { list-style: none; }
+			
+			#list4 ul li  { 
+				display:block; 
+				text-decoration:none; 
+				color:#000000;
+				background-color:#FFFFFF;
+				line-height:30px;
+				border-bottom-style:solid;
+				border-bottom-width:1px; 
+				border-bottom-color:#CCCCCC; 
+				padding-left:10px; 
+				cursor:pointer; }
+				
+			#list4 ul li  strong { margin-right:10px; }
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
+	<script src='funciones_jquery.js'></script>
+</head>
+<body>
+	
+	<div id="list4">
+		<h1 style="color:#eee">Capitales Olímpicas</h1>
+		<ul>
+			<li><strong>Sidney</strong>2000</li>
+			<li><strong>Toronto</strong>2004</li>
+			<li><strong>Beijing</strong>2008</li>
+			<li><strong>London</strong>2012</li>
+			<li><strong>Rio de Janeiro</strong>2016</li>
+		</ul>
+	</div>
+	
+		<button id='anterior'>ANTERIOR</button>
+		<button id='siguiente'>SIQUIENTE</button>
+</body>
+</html>

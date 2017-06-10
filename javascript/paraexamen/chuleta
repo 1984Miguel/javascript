@@ -1,0 +1,298 @@
+
+/* DOCUMENTO */
+
+<script type="text/javascript"></script> //interno
+<script type="text/javascript" src="archivo.js"></script> //externo
+
+
+
+/*ESCRIBIR DOCUMENTO VENTANAS */
+alert("");  // muestra una alerta
+document.write(""); // escribe en el documento
+console.log(); //escribe en la consola
+window.prompt("escribe lo que quieras"[, valor por defecto]); // abre una ventana de dialogo
+document.getElementById('')innerHTML ="variable o texto"// escribe en el html
+confirm("quiere jugar otra vez") //devuelve true o false
+
+/* EVENTOS */
+
+onclick //click
+onchange //cambio
+onsubmit // subida formulario
+
+/* VARIABLES Y CONVERSIONES*/
+
+var X = "LO QUE SEA" // Crear variable
+num.toString(); // cambia a string
+Number(variable); // pone en unmero una variable
+parseInt("10") // numero entero
+parseFloat(); // numero decimal
+IsNumeric('-1') => true // comprobar si es numero 
+isNaN(123) // false numero
+Boolean() // Ccomprobar boleanos
+numero.toFixed(2); // Igual a 5.57 pone decimales que se pidan
+var array= new Array();
+var fecha=new Date()
+// objetos al final
+var expresionregilar = /^$/;
+
+/*PRECEDENCIA DE OPERADORES */
+
+()
+++ -- !
+* / %
++ -
+< > <= >=
+== !=
+&&
+||
+= += -= *= /= %=
+
+/*  CONDICIONALES Y BUCLES*/
+
+if {} else if {} else{}// condicional
+switch(a)
+{
+	case 1: lo que sea; break
+	default: si no lo encuentra
+	
+}
+
+for (var x=0; x<5;x++){}
+while(){}
+do {}while()
+
+
+/* FORMULARIOS */
+
+	var x = document.forms["nombreformulario"]['nombrecampo'] // referir formulario
+	var x = document.forms["nombreformulario"]['nombrecampo'].value // sacar asignar valor
+	document.getElementsByName("nivel"); // otra forma
+	document.getElementById("mytext").focus(); // focus esta vez con el dom
+	document.form.nombre_formulario.nombre_del_campo.value // otra forma
+	document.getElementById("identificador").value // otra forma
+	
+	document.forms[0].campo2
+document.forms[0].elements[1] 
+
+document.forms[0].reset() //resetea
+
+	
+	
+	/* ARRAYS*/
+	
+var vocales = new Array ('a','e','i','o','u'); // array definido
+var letras = new Array ();  //array vacio
+var letras = new Array (3); // arayy con longitud
+
+array.length // tamaño array
+
+
+var tabla = new Array (3);
+tabla [0] = new Array (1,2,3);
+tabla [1] = new Array (4,5,6);
+tabla [2] = new Array (7,8,9);  //multi dimensionales
+
+
+var codigo='<table border=1> ';
+for (i=0;i<fil;i++){
+codigo+='<tr> ';
+for (j=0;j<col;j++){
+codigo+='<td>'+tabla[i][j]+'</td>' ;
+}
+codigo+='</tr>';
+}
+codigo+='</table>';       // escribir tabla
+
+
+array1.concat (array2)// concatena 2 arrays
+array.join("*") // separa un array cin un separador
+array.indexOf("o"[posicion])// busca primera aparicion desde inicio
+array.lastIndexOf("o"[posicion])// busca desde el final
+array.shift()// elimina primer elemento
+array.pop()// elimina ultimo elemento
+array.push(elemento[,elemento,...]) añade uno o mas elementos al array
+array.reverse(); //cambia orden de los elementos
+array.sort() //ordena el array
+array.slice(inicio,[fin]) // da un array con los calores comprendidos
+array.splice(inicio,eliminar,[elemento1,elemento2,...]) //añade o borra elemtos ente las posiciones
+
+
+ 	
+delete array[1];
+ 	
+array.splice(inicio,eliminar)// funciones para eliminar elementos
+
+
+/* DATE */
+
+var fecha = new Date(); // fecha ahora
+var fecha = new Date(milisegundosDesdeEpocaUNIX); // declarar fecha desde unix
+var fecha = new Date(año,mes,dia[,hora,minuto,segundo,milisegundo]); // fecha concreta
+ getDate() //Devuelve el día del mes entre 1 y 31.
+getDay() // devuelve dia 0-6 0 domingo 1 lunes
+getMonth()// Devuelve el mes (0-11).
+getFullYear() //Devuelve el año expresado con 4 dígitos. Existe el método
+getHours() //Devuelve la hora (0-23).
+getMinutes() //Devuelve los minutos (0-59).
+getSeconds() //Devuelve los segundos (0-59).
+getMiliseconds() // Devuelve los milisegundos (0-999).
+getTime() //Devuelve los milisegundos transcurridos desde la época UNIX hasta la fecha que se aplica
+setDate() //Establece el día del mes.
+setMonth()// Establece el mes (0-11).
+setFullYear() //Establece el año expresado con 4 dígit
+setHours() // Establece la hora (0-23). 
+setMinutes() //Establece los minutos (0-59).
+setSeconds() //Establece los segundos (0-59).
+setMiliseconds() //Establece los milisegundos (0-59).
+setTime() //Establece la fecha como el número de milisegla época UNIX
+toDateString() //Convierte la fecha del objeto Date en una cadena de caracteres
+toTimeString() //Convierte el tiempo del objeto Date en una cadena de caracteres
+toLocaleDateString() //Devuelve una cadena de la fecha en el formato de idioma local
+								//que tenga configurado el cliente.
+toLocaleTimeString()//Devuelve una cadena de la hora (hora, minuto, segundo) en el
+								//formato de idioma local que tenga configurado el cliente.
+
+								
+								
+								// otra forma mejor
+
+edad=fechaHoy.getFullYear()-fechaNac.getFullYear();
+
+if (fechaHoy.getMonth() < fechaNac.getMonth())
+
+	edad--;
+
+else
+
+	if (fechaHoy.getMonth() == fechaNac.getMonth())
+
+		if (fechaHoy.getDate() < fechaNac.getDate())
+
+			edad--;
+
+alert(edad);
+
+								
+
+
+/* STRING */
+
+var texto = 'pepe';
+texto.concat(otro));  //concatena cadenas
+cadena.indexOf(aguja[,inicio]) //busca desde el inicio
+cadena.lastIndexOf(aguja[,fin]) //busca desde el final
+cadena. split (separador) // devuelve array de elementos con el separador
+cadena.slice(inicio[,fin]), substring (inicio[,fin]) // devuelve caracteres comprendidos
+substr (inicio[,cantidad]) // caracteres comprendidos
+cadena.toLowerCase() // todo minusculas
+cadena.toUpperCase() // todo mayusculas
+cadena.trim() , trimLeft(), trimRight() // quita espacios en blnco principio fin
+cadena. search(cadena1) //busca en la cadena
+cadena. replace(cadena1, cadena2)//remplaza
+
+
+/* MATH*/
+
+Math.ceil (valor)
+ //Devuelve el entero inmediatamente mayor o igual que valor.
+Math.floor(valor)
+ //Devuelve el entero inmediatamente menor o igual que valor.
+Math.max(val1, ..., valN) //Devuelve el máximo de los valores recibidos como argumentos
+Math.min(val1, ..., valN) //Devuelve el mínimo de los valores recibidos como argumentos
+Math.pow(base,exponente) //Devuelve el resultado de elevar base a exponente
+Math.random()
+// Devuelve un número aleatorio entre 0 y 1, 1 no incluido
+Math.round(valor)
+// Devuelve el resultado de redondear valor al entero más próximo
+Math.sqrt(valor)
+ //Devuelve la raíz cuadrada de valor.
+
+ 
+ function aleatorioBuena (min,max){
+
+ return Math.floor(Math.random()*(max - min +1)+min);
+
+}
+ 
+ 
+ /* OBJETOS*/ // NO CAEN !!!!!!
+ 
+ 
+ var mi_coche = new Coche('Ferrari','Scaglietti','2010',3);
+mi_coche.revisar();
+alert (mi_coche.marca+' '+ mi_coche.modelo+' '+ mi_coche.anyo+' '+
+mi_coche.revisiones);  // crear objeto
+
+
+function Coche (marca_in, modelo_in, anyo_in, revisiones_in){
+this.marca =marca_in;
+this.modelo=modelo_in;
+this.anyo=anyo_in;
+this.revisiones=revisiones_in;
+this.revisar=function(){this.revisiones++;}
+}  // crear metodos y propiedades
+
+
+/*OTROS METODOS INTERESANTES*/
+
+ setInterval(function,milliseconds,param1,param2,...)// REFRESCAR
+ setTimeout() //mirar cae examen
+ 
+ 
+
+var myVar = setInterval(function(){ myTimer() }, 1000); // EJEMPLO duera se hace la funcion
+
+document.bgColor = color /* cambia color de fondo
+
+
+
+/* CLICK EN UNA CASILLA IMPORTANTE */
+
+// hacer click en una calilla de un td y hacer algo por ejemplo llamar a una funcion mostras que le pasaremos onclick="mostrar(this)"
+celda.innerHTML
+
+
+<td onclick="doblar(this)">
+
+function doblar(celda)
+{
+	celda.innerHTML=Number(celda.innerHTML)*2
+	
+}
+
+/* OBJETO WINDOW*/
+
+nuevaventa =window.open("direccion URL",[nombre de la ventana],parametros de apertura]); // avre ventana con una url
+																						//parametros importantes height left top width
+variabledelaventana.close() window.close() // cierra ventana hija / o propia ventana
+
+
+
+
+
+
+
+
+
+
+var formularioPrincipal = document.formulario;
+var formularioSecundario = document.otro_formulario;
+ 
+<form name="formulario" >
+  ...
+</form>
+ 
+<form name="otro_formulario" >
+  ...
+</form>
+
+
+
+var formularioPrincipal = document.getElementById("formulario");
+var primerElemento = document.getElementById("elemento");
+ 
+<form name="formulario" id="formulario" >
+  <input type="text" name="elemento" id="elemento" />
+</form>
+

@@ -1,0 +1,60 @@
+<html>
+
+	<head>
+	
+		<script>
+		
+		var  teclado =window.prompt("Dame una fecha en formato DD/MM/YYYY");
+		
+		var arr=new Array();
+		
+		for (var x=0;x<3;x++)
+			{
+				arr[x]=teclado.split("/")[x];
+			
+			}
+		
+		console.log(arr);
+		
+		var nac= new Date(arr[2],(arr[1]-1),arr[0]);
+		
+		var dia =nac.getDay();
+		
+		diac ="Nacies en";
+		switch(dia)
+	{
+		case 0: diac += "Domingo";break;
+		case 1: diac += "Lunes";break;
+		case 2: diac += "Martes";break;
+		case 3: diac += "Miercoles";break;
+		case 4: diac += "Jueves";break;
+		case 5: diac += "Viernes";break;
+		case 6: diac += "Sabado";break;
+	default :alert( "fecha mal introducida");
+	
+	
+}
+		
+		alert(diac);
+		
+		console.log(nac);
+		
+		
+	
+		
+		
+		
+		</script>
+	
+	
+	</head>
+	
+	
+	<body>
+	
+	<body>
+
+
+
+</html>
+
